@@ -1,33 +1,25 @@
 /* ============================================
-   王者荣耀官网 - 全局样式表
-   适用于所有页面，代码简洁，注释详细
+   王者荣耀官网 - 全局样式表 v2
+   对标 pvp.qq.com 官方风格
+   代码简洁，注释详细
    ============================================ */
 
-/* ---------- 0. CSS变量（全局颜色/字体）---------- */
+/* ---------- 0. CSS变量 ---------- */
 :root {
-    /* 主色调 */
-    --color-primary: #e8a91a;       /* 王者金 */
-    --color-secondary: #1a1a2e;     /* 深蓝黑 */
-    --color-accent: #d4380d;        /* 红色强调 */
-    --color-bg-dark: #0d0d1a;       /* 深色背景 */
-    --color-bg-light: #f5f5f5;      /* 浅色背景 */
-
-    /* 文字颜色 */
+    --color-primary: #e8a91a;
+    --color-secondary: #1a1a2e;
+    --color-accent: #d4380d;
+    --color-bg-dark: #0d0d1a;
+    --color-bg-light: #f5f5f5;
     --color-text: #333333;
     --color-text-light: #888888;
     --color-text-white: #ffffff;
-
-    /* 边框 */
     --color-border: #e0e0e0;
     --color-border-dark: #2a2a3a;
-
-    /* 间距 */
     --spacing-sm: 8px;
     --spacing-md: 16px;
     --spacing-lg: 24px;
     --spacing-xl: 40px;
-
-    /* 圆角 */
     --radius-sm: 4px;
     --radius-md: 8px;
     --radius-lg: 12px;
@@ -63,7 +55,7 @@ img {
     display: block;
 }
 
-/* ---------- 2. 通用布局类 ---------- */
+/* ---------- 2. 通用布局 ---------- */
 .container {
     width: 1200px;
     margin: 0 auto;
@@ -71,8 +63,8 @@ img {
 }
 
 .section-title {
-    font-size: 28px;
-    color: var(--color-secondary);
+    font-size: 26px;
+    color: var(--color-text-white);
     text-align: center;
     margin-bottom: var(--spacing-xl);
 }
@@ -81,19 +73,44 @@ img {
     color: var(--color-primary);
 }
 
-/* ---------- 3. 顶部导航栏 ---------- */
+/* ---------- 3. 顶部工具栏（登录/下载）---------- */
+.top-bar {
+    background-color: var(--color-bg-dark);
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0 var(--spacing-xl);
+    gap: var(--spacing-lg);
+    font-size: 13px;
+}
+
+.top-bar a {
+    color: #aaa;
+    transition: color 0.3s;
+}
+
+.top-bar a:hover {
+    color: var(--color-primary);
+}
+
+.top-bar .split {
+    color: #444;
+}
+
+/* ---------- 4. 主导航栏 ---------- */
 .header {
     background-color: var(--color-bg-dark);
+    border-top: 2px solid var(--color-primary);
     position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
 }
 
 .nav {
     display: flex;
     align-items: center;
-    height: 70px;
+    height: 64px;
     justify-content: space-between;
 }
 
@@ -102,149 +119,110 @@ img {
     display: flex;
     align-items: center;
     color: var(--color-primary);
-    font-size: 22px;
+    font-size: 20px;
     font-weight: bold;
     letter-spacing: 2px;
+    min-width: 180px;
 }
 
 .logo img {
-    height: 40px;
-    margin-right: 10px;
+    height: 36px;
+    margin-right: 8px;
 }
 
-/* 导航链接 */
+/* 导航链接 - 与官方一致 */
 .nav-list {
     display: flex;
-    gap: var(--spacing-lg);
+    align-items: center;
+    height: 100%;
 }
 
-.nav-list a {
-    color: var(--color-text-white);
-    font-size: 15px;
-    padding: 5px 0;
-    transition: color 0.3s;
+.nav-list li {
     position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    width: 100px;
 }
 
-.nav-list a:hover,
-.nav-list a.active {
+.nav-list li a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: #cccccc;
+    font-size: 14px;
+    transition: all 0.3s;
+    padding: 0 10px;
+}
+
+.nav-list li a .nav-en {
+    font-size: 10px;
+    color: #777;
+    margin-top: 2px;
+}
+
+.nav-list li a:hover,
+.nav-list li a.active {
+    color: var(--color-primary);
+    background: rgba(232, 169, 26, 0.1);
+}
+
+.nav-list li a:hover .nav-en,
+.nav-list li a.active .nav-en {
     color: var(--color-primary);
 }
 
-.nav-list a::after {
+/* 导航下划线 */
+.nav-list li::after {
     content: '';
     position: absolute;
-    bottom: -4px;
-    left: 0;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
     width: 0;
-    height: 2px;
+    height: 3px;
     background: var(--color-primary);
     transition: width 0.3s;
 }
 
-.nav-list a:hover::after,
-.nav-list a.active::after {
-    width: 100%;
+.nav-list li:hover::after,
+.nav-list li.active::after {
+    width: 80%;
 }
 
-/* 导航右侧按钮 */
+/* 右侧下载按钮 */
 .nav-right {
     display: flex;
+    align-items: center;
     gap: var(--spacing-md);
 }
 
-.btn-nav {
-    padding: 6px 18px;
+.btn-download-nav {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--color-accent);
+    color: white;
+    padding: 8px 20px;
     border-radius: var(--radius-sm);
     font-size: 14px;
-    cursor: pointer;
-    transition: all 0.3s;
-}
-
-.btn-login {
-    background: transparent;
-    border: 1px solid var(--color-primary);
-    color: var(--color-primary);
-}
-
-.btn-login:hover {
-    background: var(--color-primary);
-    color: var(--color-bg-dark);
-}
-
-.btn-download {
-    background: var(--color-primary);
-    border: 1px solid var(--color-primary);
-    color: var(--color-bg-dark);
     font-weight: bold;
+    transition: background 0.3s;
 }
 
-.btn-download:hover {
-    background: #ffb933;
-    border-color: #ffb933;
-}
-
-/* ---------- 4. 底部 Footer ---------- */
-.footer {
-    background-color: var(--color-bg-dark);
-    color: var(--color-text-light);
-    padding: var(--spacing-xl) 0 var(--spacing-lg);
-    margin-top: var(--spacing-xl);
-}
-
-.footer-content {
-    display: flex;
-    justify-content: space-between;
-    gap: var(--spacing-xl);
-}
-
-.footer-left h3 {
-    color: var(--color-primary);
-    font-size: 18px;
-    margin-bottom: var(--spacing-md);
-}
-
-.footer-left p {
-    font-size: 14px;
-    line-height: 1.8;
-}
-
-.footer-links {
-    display: flex;
-    gap: var(--spacing-xl);
-}
-
-.footer-links div h4 {
-    color: var(--color-text-white);
-    margin-bottom: var(--spacing-md);
-    font-size: 15px;
-}
-
-.footer-links div a {
-    display: block;
-    color: var(--color-text-light);
-    font-size: 13px;
-    margin-bottom: 6px;
-    transition: color 0.3s;
-}
-
-.footer-links div a:hover {
-    color: var(--color-primary);
-}
-
-.footer-bottom {
-    text-align: center;
-    padding-top: var(--spacing-lg);
-    margin-top: var(--spacing-lg);
-    border-top: 1px solid var(--color-border-dark);
-    font-size: 12px;
+.btn-download-nav:hover {
+    background: #e84010;
 }
 
 /* ---------- 5. 轮播 Banner ---------- */
 .banner {
     position: relative;
     width: 100%;
-    height: 500px;
+    height: 520px;
     overflow: hidden;
     background: var(--color-bg-dark);
 }
@@ -258,9 +236,6 @@ img {
 .banner-slide {
     min-width: 100%;
     height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     position: relative;
 }
 
@@ -270,20 +245,18 @@ img {
     object-fit: cover;
 }
 
-/* Banner 遮罩层 */
 .banner-overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, rgba(13,13,26,0.85) 0%, rgba(13,13,26,0.3) 60%, transparent 100%);
+    background: linear-gradient(90deg, rgba(13,13,26,0.9) 0%, rgba(13,13,26,0.4) 50%, transparent 100%);
 }
 
-/* Banner 文字内容 */
 .banner-content {
     position: absolute;
-    left: 10%;
+    left: 8%;
     top: 50%;
     transform: translateY(-50%);
     z-index: 2;
@@ -291,9 +264,9 @@ img {
 }
 
 .banner-content h1 {
-    font-size: 48px;
+    font-size: 52px;
     margin-bottom: var(--spacing-md);
-    text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
 }
 
 .banner-content p {
@@ -304,57 +277,59 @@ img {
 
 .banner-content .btn-primary {
     background: var(--color-primary);
-    color: var(--color-bg-dark);
-    padding: 12px 32px;
+    color: #1a1a1a;
+    padding: 12px 36px;
     border-radius: var(--radius-sm);
     font-size: 16px;
     font-weight: bold;
     display: inline-block;
-    transition: background 0.3s;
+    transition: all 0.3s;
+    border: none;
+    cursor: pointer;
 }
 
 .banner-content .btn-primary:hover {
     background: #ffb933;
+    transform: translateY(-2px);
 }
 
-/* Banner 指示器 */
 .banner-dots {
     position: absolute;
     bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
-    gap: 8px;
+    gap: 10px;
     z-index: 2;
 }
 
 .banner-dots span {
-    width: 12px;
-    height: 12px;
+    width: 14px;
+    height: 14px;
     border-radius: 50%;
-    background: rgba(255,255,255,0.4);
+    background: rgba(255,255,255,0.3);
     cursor: pointer;
-    transition: background 0.3s;
+    transition: all 0.3s;
 }
 
 .banner-dots span.active {
     background: var(--color-primary);
+    width: 36px;
+    border-radius: 7px;
 }
 
-/* Banner 左右箭头 */
 .banner-arrow {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    width: 50px;
-    height: 50px;
-    background: rgba(0,0,0,0.5);
-    border-radius: 50%;
+    width: 44px;
+    height: 80px;
+    background: rgba(0,0,0,0.4);
     display: flex;
     align-items: center;
     justify-content: center;
     color: white;
-    font-size: 24px;
+    font-size: 28px;
     cursor: pointer;
     z-index: 2;
     transition: background 0.3s;
@@ -363,71 +338,485 @@ img {
 
 .banner-arrow:hover {
     background: var(--color-primary);
+    color: #1a1a1a;
 }
 
-.banner-arrow.prev { left: 20px; }
-.banner-arrow.next { right: 20px; }
+.banner-arrow.prev { left: 0; border-radius: 0 8px 8px 0; }
+.banner-arrow.next { right: 0; border-radius: 8px 0 0 8px; }
 
-/* ---------- 6. 卡片网格 ---------- */
-.card-grid {
+/* ---------- 6. 内容区通用样式 ---------- */
+.main-content {
+    background: var(--color-bg-dark);
+    padding: var(--spacing-xl) 0;
+}
+
+.main-content h2 {
+    color: var(--color-text-white);
+    font-size: 22px;
+    margin-bottom: var(--spacing-lg);
+}
+
+.main-content h2 .highlight {
+    color: var(--color-primary);
+}
+
+/* ---------- 7. 新闻模块（与官方一致的Tab）---------- */
+.news-module {
+    margin-bottom: var(--spacing-xl);
+}
+
+.news-tabs {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    border-bottom: 1px solid #333;
+    margin-bottom: var(--spacing-md);
+}
+
+.news-tabs a {
+    padding: 8px 20px;
+    color: #888;
+    font-size: 14px;
+    border-bottom: 2px solid transparent;
+    transition: all 0.3s;
+}
+
+.news-tabs a:hover,
+.news-tabs a.active {
+    color: var(--color-primary);
+    border-bottom-color: var(--color-primary);
+}
+
+.news-tabs .more {
+    margin-left: auto;
+    color: #666;
+    font-size: 13px;
+}
+
+.news-tabs .more:hover {
+    color: var(--color-primary);
+}
+
+.news-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: var(--spacing-lg);
+    grid-template-columns: repeat(5, 1fr);
+    gap: var(--spacing-md);
 }
 
-/* 通用卡片 */
-.card {
-    background: white;
+.news-item {
+    background: #1a1a2e;
     border-radius: var(--radius-md);
     overflow: hidden;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
-    transition: transform 0.3s, box-shadow 0.3s;
+    transition: transform 0.3s;
+    cursor: pointer;
 }
 
-.card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+.news-item:hover {
+    transform: translateY(-4px);
 }
 
-.card img {
+.news-item img {
     width: 100%;
-    height: 200px;
+    height: 130px;
     object-fit: cover;
 }
 
-.card-body {
-    padding: var(--spacing-md);
+.news-item-info {
+    padding: var(--spacing-sm);
 }
 
-.card-body h3 {
-    font-size: 18px;
-    margin-bottom: 6px;
-    color: var(--color-secondary);
+.news-item-info .tag {
+    display: inline-block;
+    background: var(--color-accent);
+    color: white;
+    font-size: 10px;
+    padding: 1px 6px;
+    border-radius: 3px;
+    margin-bottom: 4px;
 }
 
-.card-body p {
-    font-size: 14px;
-    color: var(--color-text-light);
-    line-height: 1.5;
+.news-item-info .title {
+    color: #ccc;
+    font-size: 13px;
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
-/* ---------- 7. 英雄卡片（特殊样式）---------- */
+.news-item-info .date {
+    color: #555;
+    font-size: 11px;
+    margin-top: 4px;
+}
+
+/* ---------- 8. 英雄攻略模块 ---------- */
+.hero-guide {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: var(--spacing-lg);
+}
+
 .hero-card {
+    background: #1a1a2e;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.hero-card:hover {
+    transform: translateY(-4px);
+}
+
+.hero-card img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+.hero-card-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: var(--spacing-md);
+    background: linear-gradient(transparent, rgba(0,0,0,0.95));
+    color: white;
+}
+
+.hero-card-overlay h3 {
+    font-size: 18px;
+    margin-bottom: 4px;
+}
+
+.hero-card-overlay p {
+    font-size: 13px;
+    color: #aaa;
+}
+
+.hero-tag {
+    display: inline-block;
+    background: var(--color-primary);
+    color: #000;
+    font-size: 10px;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-weight: bold;
+    margin-right: 4px;
+}
+
+/* ---------- 9. 最新皮肤/英雄 模块 ---------- */
+.skin-hero-module {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-lg);
+}
+
+.skin-hero-card {
     position: relative;
     border-radius: var(--radius-md);
     overflow: hidden;
     cursor: pointer;
+    background: #1a1a2e;
 }
 
-.hero-card img {
-    height: 320px;
+.skin-hero-card:first-child {
+    height: 360px;
+}
+
+.skin-hero-card img {
     width: 100%;
+    height: 100%;
     object-fit: cover;
+}
+
+.skin-hero-card .label {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: var(--color-primary);
+    color: #000;
+    font-size: 12px;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.skin-hero-card .info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: var(--spacing-md);
+    background: linear-gradient(transparent, rgba(0,0,0,0.9));
+    color: white;
+}
+
+.skin-hero-card .info h4 {
+    font-size: 16px;
+}
+
+.skin-hero-card .info p {
+    font-size: 12px;
+    color: #aaa;
+}
+
+/* ---------- 10. 赛事模块 ---------- */
+.esports-module {
+    margin-top: var(--spacing-lg);
+}
+
+.esports-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--spacing-md);
+}
+
+.esports-card {
+    background: #1a1a2e;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    transition: transform 0.3s;
+    cursor: pointer;
+}
+
+.esports-card:hover {
+    transform: translateY(-4px);
+}
+
+.esports-card img {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+}
+
+.esports-card-info {
+    padding: var(--spacing-sm);
+}
+
+.esports-card-info h4 {
+    color: #ccc;
+    font-size: 14px;
+    margin-bottom: 4px;
+}
+
+.esports-card-info p {
+    color: #666;
+    font-size: 12px;
+}
+
+/* ---------- 11. 内容中心模块 ---------- */
+.content-module {
+    margin-top: var(--spacing-lg);
+}
+
+.content-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-lg);
+}
+
+.content-card {
+    background: #1a1a2e;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    display: flex;
+    cursor: pointer;
     transition: transform 0.3s;
 }
 
-.hero-card:hover img {
-    transform: scale(1.05);
+.content-card:hover {
+    transform: translateY(-4px);
+}
+
+.content-card img {
+    width: 200px;
+    height: 140px;
+    object-fit: cover;
+}
+
+.content-card-info {
+    padding: var(--spacing-md);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.content-card-info h4 {
+    color: var(--color-primary);
+    font-size: 16px;
+    margin-bottom: 6px;
+}
+
+.content-card-info p {
+    color: #888;
+    font-size: 13px;
+}
+
+/* ---------- 12. 底部 Footer ---------- */
+.footer {
+    background-color: var(--color-bg-dark);
+    color: #666;
+    padding: var(--spacing-xl) 0 var(--spacing-lg);
+    border-top: 1px solid #222;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--spacing-xl);
+    margin-bottom: var(--spacing-lg);
+}
+
+.footer-left h3 {
+    color: var(--color-primary);
+    font-size: 18px;
+    margin-bottom: var(--spacing-sm);
+}
+
+.footer-left p {
+    font-size: 13px;
+    line-height: 1.8;
+    color: #555;
+}
+
+.footer-links {
+    display: flex;
+    gap: var(--spacing-xl);
+}
+
+.footer-links div h4 {
+    color: #888;
+    margin-bottom: var(--spacing-md);
+    font-size: 14px;
+}
+
+.footer-links div a {
+    display: block;
+    color: #555;
+    font-size: 13px;
+    margin-bottom: 6px;
+    transition: color 0.3s;
+}
+
+.footer-links div a:hover {
+    color: var(--color-primary);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: var(--spacing-lg);
+    border-top: 1px solid #1e1e1e;
+    font-size: 12px;
+    color: #444;
+}
+
+.footer-bottom a {
+    color: #555;
+}
+
+.footer-bottom a:hover {
+    color: var(--color-primary);
+}
+
+/* ---------- 13. 英雄列表页 ---------- */
+.page-banner {
+    height: 260px;
+    background: linear-gradient(135deg, #0d0d1a 0%, #1a0f00 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+}
+
+.page-banner h1 {
+    font-size: 38px;
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-sm);
+}
+
+.page-banner p {
+    font-size: 15px;
+    color: #777;
+}
+
+.breadcrumb {
+    padding: var(--spacing-md) 0;
+    font-size: 13px;
+    color: #666;
+}
+
+.breadcrumb a {
+    color: #888;
+}
+
+.breadcrumb a:hover {
+    color: var(--color-primary);
+}
+
+.breadcrumb span {
+    margin: 0 8px;
+}
+
+/* 筛选栏 */
+.filter-bar {
+    display: flex;
+    gap: var(--spacing-md);
+    justify-content: center;
+    margin-bottom: var(--spacing-xl);
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    padding: 8px 20px;
+    border-radius: 20px;
+    border: 1px solid #333;
+    background: transparent;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s;
+    color: #888;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+    color: #000;
+    font-weight: bold;
+}
+
+/* 英雄网格 */
+.hero-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: var(--spacing-md);
+}
+
+.hero-card-wrap {
+    position: relative;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s;
+    background: #1a1a2e;
+}
+
+.hero-card-wrap:hover {
+    transform: translateY(-4px);
+}
+
+.hero-card-wrap img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    display: block;
 }
 
 .hero-card-info {
@@ -441,126 +830,51 @@ img {
 }
 
 .hero-card-info h3 {
-    font-size: 18px;
+    font-size: 16px;
+    margin-bottom: 4px;
 }
 
 .hero-card-info p {
-    font-size: 13px;
-    color: #ccc;
-}
-
-.hero-tag {
-    display: inline-block;
-    background: var(--color-primary);
-    color: var(--color-bg-dark);
-    font-size: 11px;
-    padding: 2px 8px;
-    border-radius: 10px;
-    margin-right: 5px;
-    font-weight: bold;
-}
-
-/* ---------- 8. 标签筛选栏 ---------- */
-.filter-bar {
-    display: flex;
-    gap: var(--spacing-md);
-    justify-content: center;
-    margin-bottom: var(--spacing-xl);
-    flex-wrap: wrap;
-}
-
-.filter-btn {
-    padding: 8px 20px;
-    border-radius: 20px;
-    border: 1px solid var(--color-border);
-    background: white;
-    cursor: pointer;
-    font-size: 14px;
-    transition: all 0.3s;
-    color: var(--color-text);
-}
-
-.filter-btn:hover,
-.filter-btn.active {
-    background: var(--color-primary);
-    border-color: var(--color-primary);
-    color: var(--color-bg-dark);
-    font-weight: bold;
-}
-
-/* ---------- 9. 内页大 Banner ---------- */
-.page-banner {
-    height: 300px;
-    background: linear-gradient(135deg, var(--color-bg-dark) 0%, #2a1a0a 100%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    text-align: center;
-}
-
-.page-banner h1 {
-    font-size: 42px;
-    color: var(--color-primary);
-    margin-bottom: var(--spacing-md);
-}
-
-.page-banner p {
-    font-size: 16px;
+    font-size: 12px;
     color: #aaa;
 }
 
-/* ---------- 10. 面包屑导航 ---------- */
-.breadcrumb {
-    padding: var(--spacing-md) 0;
-    font-size: 14px;
-    color: var(--color-text-light);
+/* ---------- 14. 英雄详情页 ---------- */
+.hero-detail-section {
+    background: var(--color-bg-dark);
+    padding: var(--spacing-xl) 0;
 }
 
-.breadcrumb a {
-    color: var(--color-text-light);
-}
-
-.breadcrumb a:hover {
-    color: var(--color-primary);
-}
-
-.breadcrumb span {
-    margin: 0 8px;
-}
-
-/* ---------- 11. 英雄详情页布局 ---------- */
 .hero-detail-wrapper {
     display: flex;
     gap: var(--spacing-xl);
-    margin-top: var(--spacing-xl);
 }
 
 .hero-detail-left {
-    flex: 0 0 400px;
+    flex: 0 0 380px;
 }
 
 .hero-detail-left img {
     width: 100%;
     border-radius: var(--radius-md);
-    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
 }
 
 .hero-detail-right {
     flex: 1;
+    color: white;
 }
 
 .hero-detail-right h2 {
-    font-size: 32px;
+    font-size: 30px;
     color: var(--color-primary);
-    margin-bottom: var(--spacing-sm);
+    margin-bottom: 4px;
 }
 
 .hero-detail-right .hero-subtitle {
-    color: var(--color-text-light);
+    color: #888;
     margin-bottom: var(--spacing-lg);
-    font-size: 16px;
+    font-size: 15px;
 }
 
 .hero-stats {
@@ -571,22 +885,21 @@ img {
 }
 
 .hero-stat {
-    background: white;
+    background: #1a1a2e;
     border-radius: var(--radius-md);
     padding: var(--spacing-md);
     text-align: center;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
 }
 
 .hero-stat label {
     display: block;
     font-size: 12px;
-    color: var(--color-text-light);
+    color: #666;
     margin-bottom: 4px;
 }
 
 .hero-stat .value {
-    font-size: 24px;
+    font-size: 22px;
     font-weight: bold;
     color: var(--color-accent);
 }
@@ -596,94 +909,107 @@ img {
 }
 
 .hero-skills h3 {
-    font-size: 18px;
+    font-size: 16px;
     margin-bottom: var(--spacing-md);
+    color: var(--color-primary);
 }
 
 .skill-item {
     display: flex;
     gap: var(--spacing-md);
-    background: white;
+    background: #1a1a2e;
     border-radius: var(--radius-md);
     padding: var(--spacing-md);
     margin-bottom: var(--spacing-md);
-    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
 }
 
 .skill-item img {
-    width: 80px;
-    height: 80px;
+    width: 72px;
+    height: 72px;
     border-radius: var(--radius-sm);
     object-fit: cover;
 }
 
 .skill-item-info h4 {
-    font-size: 16px;
+    font-size: 15px;
     margin-bottom: 4px;
-    color: var(--color-secondary);
+    color: #ccc;
 }
 
 .skill-item-info p {
-    font-size: 14px;
-    color: var(--color-text-light);
+    font-size: 13px;
+    color: #777;
+    line-height: 1.6;
 }
 
-/* ---------- 12. 新闻列表页 ---------- */
+/* ---------- 15. 新闻列表页 ---------- */
 .news-list {
     max-width: 900px;
     margin: 0 auto;
 }
 
-.news-item {
+.news-list-item {
     display: flex;
     gap: var(--spacing-lg);
     padding: var(--spacing-lg);
-    background: white;
+    background: #1a1a2e;
     border-radius: var(--radius-md);
     margin-bottom: var(--spacing-md);
-    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-    transition: box-shadow 0.3s;
+    transition: transform 0.3s;
     cursor: pointer;
 }
 
-.news-item:hover {
-    box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+.news-list-item:hover {
+    transform: translateX(4px);
 }
 
-.news-item img {
+.news-list-item img {
     width: 200px;
-    height: 140px;
+    height: 130px;
     border-radius: var(--radius-sm);
     object-fit: cover;
     flex-shrink: 0;
 }
 
-.news-item-content h3 {
-    font-size: 18px;
+.news-list-item-content h3 {
+    font-size: 17px;
     margin-bottom: 8px;
-    color: var(--color-secondary);
+    color: #ccc;
 }
 
-.news-item-content p {
-    font-size: 14px;
-    color: var(--color-text-light);
+.news-list-item-content p {
+    font-size: 13px;
+    color: #777;
     line-height: 1.6;
     margin-bottom: 8px;
 }
 
 .news-meta {
     font-size: 12px;
-    color: #aaa;
+    color: #555;
 }
 
-/* ---------- 13. 表单样式 ---------- */
+.news-meta .tag {
+    display: inline-block;
+    padding: 1px 8px;
+    border-radius: 3px;
+    margin-right: 8px;
+}
+
+/* ---------- 16. 表单样式 ---------- */
 .form-box {
-    background: white;
+    background: #1a1a2e;
     border-radius: var(--radius-md);
     padding: var(--spacing-xl);
-    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
     max-width: 600px;
     margin: 0 auto;
+}
+
+.form-box h2 {
+    text-align: center;
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-xl);
+    font-size: 22px;
 }
 
 .form-group {
@@ -692,10 +1018,9 @@ img {
 
 .form-group label {
     display: block;
-    font-size: 14px;
+    font-size: 13px;
     margin-bottom: 6px;
-    font-weight: 500;
-    color: var(--color-secondary);
+    color: #888;
 }
 
 .form-group input,
@@ -703,10 +1028,12 @@ img {
 .form-group select {
     width: 100%;
     padding: 10px 14px;
-    border: 1px solid var(--color-border);
+    border: 1px solid #333;
     border-radius: var(--radius-sm);
     font-size: 14px;
     font-family: inherit;
+    background: #0d0d1a;
+    color: #ccc;
     transition: border-color 0.3s;
 }
 
@@ -726,7 +1053,7 @@ img {
     width: 100%;
     padding: 12px;
     background: var(--color-primary);
-    color: var(--color-bg-dark);
+    color: #000;
     border: none;
     border-radius: var(--radius-sm);
     font-size: 16px;
@@ -739,7 +1066,7 @@ img {
     background: #ffb933;
 }
 
-/* ---------- 14. 视频卡片 ---------- */
+/* ---------- 17. 视频/赛事卡片 ---------- */
 .video-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -747,20 +1074,19 @@ img {
 }
 
 .video-card {
-    background: white;
+    background: #1a1a2e;
     border-radius: var(--radius-md);
     overflow: hidden;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
     transition: transform 0.3s;
 }
 
 .video-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-4px);
 }
 
 .video-thumbnail {
     position: relative;
-    height: 180px;
+    height: 160px;
     overflow: hidden;
 }
 
@@ -775,135 +1101,119 @@ img {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 50px;
-    height: 50px;
+    width: 46px;
+    height: 46px;
     background: rgba(232, 169, 26, 0.9);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     color: white;
-    font-size: 20px;
+    font-size: 18px;
 }
 
 .video-card-body {
-    padding: var(--spacing-md);
+    padding: var(--spacing-sm);
 }
 
 .video-card-body h3 {
-    font-size: 15px;
-    margin-bottom: 6px;
-    color: var(--color-secondary);
+    font-size: 14px;
+    color: #ccc;
 }
 
 .video-card-body p {
     font-size: 12px;
-    color: var(--color-text-light);
+    color: #555;
 }
 
-/* ---------- 15. 赛事页样式 ---------- */
-.match-card {
-    background: white;
-    border-radius: var(--radius-md);
-    padding: var(--spacing-lg);
-    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
-    text-align: center;
-    margin-bottom: var(--spacing-lg);
-}
-
-.match-card .match-time {
-    font-size: 14px;
-    color: var(--color-text-light);
-    margin-bottom: var(--spacing-md);
-}
-
-.match-card .teams {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: var(--spacing-xl);
-}
-
-.match-card .team {
-    text-align: center;
-}
-
-.match-card .team img {
-    width: 80px;
-    height: 80px;
-    margin: 0 auto var(--spacing-sm);
-    object-fit: contain;
-}
-
-.match-card .team-name {
-    font-size: 16px;
-    font-weight: bold;
-    color: var(--color-secondary);
-}
-
-.match-card .vs {
-    font-size: 24px;
-    font-weight: bold;
-    color: var(--color-primary);
-}
-
-/* ---------- 16. 下载页样式 ---------- */
-.download-section {
-    text-align: center;
-    padding: var(--spacing-xl);
-}
-
-.download-qr {
+/* ---------- 18. 下载页样式 ---------- */
+.download-platforms {
     display: flex;
     justify-content: center;
     gap: var(--spacing-xl);
+    flex-wrap: wrap;
     margin: var(--spacing-xl) 0;
 }
 
-.qr-item {
-    background: white;
-    padding: var(--spacing-lg);
-    border-radius: var(--radius-md);
-    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+.platform-card {
+    background: #1a1a2e;
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-xl);
     text-align: center;
+    width: 280px;
+    transition: transform 0.3s;
 }
 
-.qr-item img {
-    width: 150px;
-    height: 150px;
+.platform-card:hover {
+    transform: translateY(-4px);
+}
+
+.platform-icon {
+    width: 72px;
+    height: 72px;
+    margin: 0 auto var(--spacing-md);
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+}
+
+.platform-card h3 {
+    color: #ccc;
+    font-size: 18px;
+    margin-bottom: 8px;
+}
+
+.platform-card p {
+    color: #666;
+    font-size: 13px;
     margin-bottom: var(--spacing-md);
 }
 
-.qr-item p {
-    font-size: 14px;
-    color: var(--color-secondary);
-}
-
-.download-buttons {
-    display: flex;
-    justify-content: center;
-    gap: var(--spacing-lg);
-    margin-top: var(--spacing-xl);
-}
-
-.btn-download-big {
-    padding: 14px 40px;
+.btn-platform-download {
+    display: inline-block;
+    padding: 10px 28px;
     background: var(--color-primary);
-    color: var(--color-bg-dark);
-    border-radius: var(--radius-md);
-    font-size: 16px;
+    color: #000;
+    border-radius: var(--radius-sm);
     font-weight: bold;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
     transition: background 0.3s;
 }
 
-.btn-download-big:hover {
+.btn-platform-download:hover {
     background: #ffb933;
 }
 
-/* ---------- 17. 分页组件 ---------- */
+/* ---------- 19. Tab 切换 ---------- */
+.tab-btn {
+    padding: 8px 24px;
+    border: 1px solid #333;
+    background: transparent;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s;
+    color: #888;
+}
+
+.tab-btn:hover,
+.tab-btn.active {
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+    color: #000;
+    font-weight: bold;
+}
+
+.tab-panel {
+    display: none;
+}
+
+.tab-panel.active {
+    display: block;
+}
+
+/* ---------- 20. 分页 ---------- */
 .pagination {
     display: flex;
     justify-content: center;
@@ -912,13 +1222,14 @@ img {
 }
 
 .pagination button {
-    width: 40px;
-    height: 40px;
-    border: 1px solid var(--color-border);
-    background: white;
+    width: 38px;
+    height: 38px;
+    border: 1px solid #333;
+    background: transparent;
     border-radius: var(--radius-sm);
     cursor: pointer;
     font-size: 14px;
+    color: #888;
     transition: all 0.3s;
 }
 
@@ -926,26 +1237,25 @@ img {
 .pagination button.active {
     background: var(--color-primary);
     border-color: var(--color-primary);
-    color: var(--color-bg-dark);
+    color: #000;
     font-weight: bold;
 }
 
-/* ---------- 18. 回顶部按钮 ---------- */
+/* ---------- 21. 回顶部按钮 ---------- */
 .back-to-top {
     position: fixed;
     right: 30px;
     bottom: 30px;
-    width: 45px;
-    height: 45px;
+    width: 42px;
+    height: 42px;
     background: var(--color-primary);
-    color: white;
+    color: #000;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 20px;
+    font-size: 18px;
     cursor: pointer;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
     opacity: 0;
     transition: opacity 0.3s;
     z-index: 999;
@@ -955,15 +1265,32 @@ img {
     opacity: 1;
 }
 
-/* ---------- 19. 响应式适配 ---------- */
+/* ---------- 22. 响应式 ---------- */
 @media (max-width: 768px) {
-    .container {
-        width: 100%;
-        padding: 0 var(--spacing-md);
+    .container { width: 100%; }
+
+    .top-bar { display: none; }
+
+    .nav-list { display: none; }
+
+    .news-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 
-    .nav-list {
-        display: none;
+    .hero-guide {
+        grid-template-columns: 1fr;
+    }
+
+    .skin-hero-module {
+        grid-template-columns: 1fr;
+    }
+
+    .esports-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .content-cards {
+        grid-template-columns: 1fr;
     }
 
     .hero-detail-wrapper {
@@ -982,20 +1309,11 @@ img {
         grid-template-columns: 1fr;
     }
 
-    .banner-content h1 {
-        font-size: 28px;
-    }
-
     .footer-content {
         flex-direction: column;
     }
 
-    .news-item {
-        flex-direction: column;
-    }
-
-    .news-item img {
-        width: 100%;
-        height: 180px;
+    .banner-content h1 {
+        font-size: 28px;
     }
 }

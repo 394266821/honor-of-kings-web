@@ -5,122 +5,80 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>反馈留言 - 王者荣耀</title>
     <link rel="stylesheet" href="style.css">
-    <style>
-        /* 联系页专属 */
-        .contact-section { padding: var(--spacing-xl) 0; }
-        .contact-info {
-            display: flex;
-            justify-content: center;
-            gap: var(--spacing-xl);
-            margin-bottom: var(--spacing-xl);
-            flex-wrap: wrap;
-        }
-        .contact-info-card {
-            background: white;
-            border-radius: var(--radius-md);
-            padding: var(--spacing-xl);
-            text-align: center;
-            width: 260px;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
-        }
-        .contact-info-card .icon {
-            font-size: 40px;
-            margin-bottom: var(--spacing-md);
-        }
-        .contact-info-card h3 { font-size: 16px; margin-bottom: 6px; }
-        .contact-info-card p { font-size: 14px; color: var(--color-text-light); }
-    </style>
 </head>
 <body>
 
-    <!-- 导航 -->
+    <div class="top-bar">
+        <a href="#">登录</a><span class="split">|</span>
+        <a href="#">注册</a><span class="split">|</span>
+        <a href="contact.html">客服中心</a>
+    </div>
+
     <header class="header">
         <div class="container">
             <nav class="nav">
                 <a href="index.html" class="logo">👑 王者荣耀</a>
                 <ul class="nav-list">
-                    <li><a href="index.html">首页</a></li>
-                    <li><a href="heroes.html">英雄</a></li>
-                    <li><a href="skins.html">皮肤</a></li>
-                    <li><a href="news.html">资讯</a></li>
-                    <li><a href="video.html">视频</a></li>
-                    <li><a href="esports.html">赛事</a></li>
-                    <li><a href="about.html">关于</a></li>
+                    <li><a href="index.html"><span>首页</span><span class="nav-en">HOME</span></a></li>
+                    <li><a href="heroes.html"><span>游戏资料</span><span class="nav-en">DATA</span></a></li>
+                    <li><a href="video.html"><span>内容中心</span><span class="nav-en">CONTENTS</span></a></li>
+                    <li><a href="esports.html"><span>赛事中心</span><span class="nav-en">MATCH</span></a></li>
+                    <li><a href="about.html"><span>王者文化</span><span class="nav-en">CULTURE</span></a></li>
+                    <li><a href="contact.html" class="active"><span>玩家支持</span><span class="nav-en">PLAYER</span></a></li>
                 </ul>
                 <div class="nav-right">
-                    <a href="contact.html" class="btn-nav btn-login" style="background:var(--color-primary);color:#000;">反馈</a>
-                    <a href="download.html" class="btn-nav btn-download">下载游戏</a>
+                    <a href="download.html" class="btn-download-nav">📥 下载游戏</a>
                 </div>
             </nav>
         </div>
     </header>
 
-    <!-- Banner -->
     <div class="page-banner">
-        <h1>💬 反馈留言</h1>
+        <h1>💬 玩家支持</h1>
         <p>您的问题与建议，是我们改进的动力</p>
     </div>
 
-    <!-- 面包屑 -->
     <div class="container">
         <div class="breadcrumb">
-            <a href="index.html">首页</a>
-            <span>›</span>
+            <a href="index.html">首页</a><span>›</span>
             <span>反馈留言</span>
         </div>
     </div>
 
-    <!-- 联系内容 -->
-    <section class="contact-section">
+    <div class="main-content">
         <div class="container">
 
-            <!-- 联系信息卡片 -->
-            <div class="contact-info">
-
-                <div class="contact-info-card">
-                    <div class="icon">📧</div>
-                    <h3>官方邮箱</h3>
-                    <p>service_wzry@tencent.com</p>
+            <!-- 联系信息 -->
+            <div style="display:flex;justify-content:center;gap:var(--spacing-xl);margin-bottom:var(--spacing-xl);flex-wrap:wrap;">
+                <div style="background:#1a1a2e;padding:var(--spacing-xl);border-radius:12px;text-align:center;width:240px;">
+                    <div style="font-size:36px;margin-bottom:var(--spacing-md);">📧</div>
+                    <h3 style="color:#ccc;font-size:15px;margin-bottom:6px;">官方邮箱</h3>
+                    <p style="color:#666;font-size:13px;">service_wzry@tencent.com</p>
                 </div>
-
-                <div class="contact-info-card">
-                    <div class="icon">📱</div>
-                    <h3>微信公众号</h3>
-                    <p>王者荣耀（搜索"王者荣耀"）</p>
+                <div style="background:#1a1a2e;padding:var(--spacing-xl);border-radius:12px;text-align:center;width:240px;">
+                    <div style="font-size:36px;margin-bottom:var(--spacing-md);">📱</div>
+                    <h3 style="color:#ccc;font-size:15px;margin-bottom:6px;">微信公众号</h3>
+                    <p style="color:#666;font-size:13px;">王者荣耀</p>
                 </div>
-
-                <div class="contact-info-card">
-                    <div class="icon">🌐</div>
-                    <h3>官方网站</h3>
-                    <p>pvp.qq.com</p>
+                <div style="background:#1a1a2e;padding:var(--spacing-xl);border-radius:12px;text-align:center;width:240px;">
+                    <div style="font-size:36px;margin-bottom:var(--spacing-md);">⏰</div>
+                    <h3 style="color:#ccc;font-size:15px;margin-bottom:6px;">客服时间</h3>
+                    <p style="color:#666;font-size:13px;">每日 9:00 - 21:00</p>
                 </div>
-
-                <div class="contact-info-card">
-                    <div class="icon">⏰</div>
-                    <h3>客服时间</h3>
-                    <p>每日 9:00 - 21:00</p>
-                </div>
-
             </div>
 
-            <!-- 反馈表单 -->
+            <!-- 表单 -->
             <div class="form-box">
-                <h2 style="text-align:center;margin-bottom:var(--spacing-xl);color:var(--color-secondary);">✏️ 填写反馈表单</h2>
+                <h2>✏️ 填写反馈表单</h2>
                 <form>
-
-                    <!-- 姓名 -->
                     <div class="form-group">
                         <label for="name">您的姓名 *</label>
                         <input type="text" id="name" placeholder="请输入姓名" required>
                     </div>
-
-                    <!-- 邮箱 -->
                     <div class="form-group">
                         <label for="email">电子邮箱 *</label>
-                        <input type="email" id="email" placeholder="请输入邮箱地址，用于接收回复" required>
+                        <input type="email" id="email" placeholder="请输入邮箱地址" required>
                     </div>
-
-                    <!-- 问题类型 -->
                     <div class="form-group">
                         <label for="type">反馈类型</label>
                         <select id="type">
@@ -130,38 +88,24 @@
                             <option value="other">📋 其他</option>
                         </select>
                     </div>
-
-                    <!-- 游戏角色（可选） -->
-                    <div class="form-group">
-                        <label for="hero">您使用的英雄（选填）</label>
-                        <input type="text" id="hero" placeholder="如：后羿、妲己、安琪拉">
-                    </div>
-
-                    <!-- 留言内容 -->
                     <div class="form-group">
                         <label for="message">留言内容 *</label>
-                        <textarea id="message" placeholder="请详细描述您遇到的问题或建议，我们会认真处理每一条反馈..." required></textarea>
+                        <textarea id="message" placeholder="请详细描述您遇到的问题或建议..." required></textarea>
                     </div>
-
-                    <!-- 提交按钮 -->
                     <button type="submit" class="btn-submit">🚀 提交反馈</button>
-
                 </form>
             </div>
 
-            <!-- 温馨提示 -->
-            <div style="max-width:600px;margin:var(--spacing-xl) auto 0;text-align:center;background:#fffbe6;border-radius:8px;padding:var(--spacing-lg);border:1px solid #ffe58f;">
-                <p style="font-size:14px;color:var(--color-text);">
-                    💡 <strong>温馨提示：</strong><br>
-                    我们会在 <strong>1-3个工作日</strong> 内回复您的邮件。<br>
-                    如遇紧急问题，建议前往游戏内客服中心或拨打官方客服热线。
+            <!-- 提示 -->
+            <div style="max-width:600px;margin:var(--spacing-xl) auto 0;text-align:center;background:rgba(232,169,26,0.1);border-radius:8px;padding:var(--spacing-lg);border:1px solid rgba(232,169,26,0.3);">
+                <p style="color:#888;font-size:13px;">
+                    💡 <strong>温馨提示：</strong>我们会在 <strong>1-3个工作日</strong> 内回复您的邮件。如遇紧急问题，建议前往游戏内客服中心。
                 </p>
             </div>
 
         </div>
-    </section>
+    </div>
 
-    <!-- 底部 -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
@@ -171,7 +115,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>本网页为大学期末作业静态演示项目，非官方网站</p>
+                本网页为大学期末作业静态演示项目，非官方网站
             </div>
         </div>
     </footer>

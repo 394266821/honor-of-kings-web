@@ -5,37 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>英雄详情：后羿 - 王者荣耀</title>
     <link rel="stylesheet" href="style.css">
-    <style>
-        /* 英雄详情页专属样式（简洁）*/
-        .hero-detail-section { padding: var(--spacing-xl) 0; }
-    </style>
 </head>
 <body>
 
-    <!-- 顶部导航 -->
+    <!-- 顶部工具栏 -->
+    <div class="top-bar">
+        <a href="#">登录</a><span class="split">|</span>
+        <a href="#">注册</a><span class="split">|</span>
+        <a href="contact.html">客服中心</a>
+    </div>
+
+    <!-- 主导航 -->
     <header class="header">
         <div class="container">
             <nav class="nav">
                 <a href="index.html" class="logo">👑 王者荣耀</a>
                 <ul class="nav-list">
-                    <li><a href="index.html">首页</a></li>
-                    <li><a href="heroes.html" class="active">英雄</a></li>
-                    <li><a href="skins.html">皮肤</a></li>
-                    <li><a href="news.html">资讯</a></li>
-                    <li><a href="video.html">视频</a></li>
-                    <li><a href="esports.html">赛事</a></li>
-                    <li><a href="about.html">关于</a></li>
+                    <li><a href="index.html"><span>首页</span><span class="nav-en">HOME</span></a></li>
+                    <li><a href="heroes.html" class="active"><span>游戏资料</span><span class="nav-en">DATA</span></a></li>
+                    <li><a href="video.html"><span>内容中心</span><span class="nav-en">CONTENTS</span></a></li>
+                    <li><a href="esports.html"><span>赛事中心</span><span class="nav-en">MATCH</span></a></li>
+                    <li><a href="about.html"><span>王者文化</span><span class="nav-en">CULTURE</span></a></li>
+                    <li><a href="contact.html"><span>玩家支持</span><span class="nav-en">PLAYER</span></a></li>
                 </ul>
                 <div class="nav-right">
-                    <a href="contact.html" class="btn-nav btn-login">反馈</a>
-                    <a href="download.html" class="btn-nav btn-download">下载游戏</a>
+                    <a href="download.html" class="btn-download-nav">📥 下载游戏</a>
                 </div>
             </nav>
         </div>
     </header>
 
     <!-- 页面 Banner -->
-    <div class="page-banner" style="background: linear-gradient(135deg, #0a0a1e 0%, #1a0f00 100%);">
+    <div class="page-banner">
         <h1>🏹 后羿 · 远游之人</h1>
         <p>职业定位：射手 · 获取方式：新手任务赠送 / 金币 13888</p>
     </div>
@@ -43,10 +44,8 @@
     <!-- 面包屑 -->
     <div class="container">
         <div class="breadcrumb">
-            <a href="index.html">首页</a>
-            <span>›</span>
-            <a href="heroes.html">英雄列表</a>
-            <span>›</span>
+            <a href="index.html">首页</a><span>›</span>
+            <a href="heroes.html">英雄列表</a><span>›</span>
             <span>后羿</span>
         </div>
     </div>
@@ -56,31 +55,28 @@
         <div class="container">
             <div class="hero-detail-wrapper">
 
-                <!-- 左侧：英雄图片 -->
+                <!-- 左侧图片 -->
                 <div class="hero-detail-left">
                     <img src="https://game.gtimg.cn/images/yxzj/img201606/heroimg/111/111.jpg" alt="后羿">
-                    <!-- 皮肤切换 -->
                     <div style="margin-top:var(--spacing-md);">
-                        <p style="font-size:14px;color:var(--color-text-light);margin-bottom:8px;">皮肤展示</p>
+                        <p style="color:#666;font-size:13px;margin-bottom:8px;">皮肤展示</p>
                         <div style="display:flex;gap:8px;">
                             <img src="https://game.gtimg.cn/images/yxzj/img201606/skin/big-11100.jpg" alt="原皮"
-                                 style="width:80px;height:80px;border-radius:8px;object-fit:cover;border:2px solid var(--color-primary);">
+                                style="width:72px;height:72px;border-radius:8px;object-fit:cover;border:2px solid var(--color-primary);">
                             <img src="https://game.gtimg.cn/images/yxzj/img201606/skin/big-11101.jpg" alt="阿尔法小队"
-                                 style="width:80px;height:80px;border-radius:8px;object-fit:cover;opacity:0.7;">
+                                style="width:72px;height:72px;border-radius:8px;object-fit:cover;opacity:0.6;">
                             <img src="https://game.gtimg.cn/images/yxzj/img201606/skin/big-11102.jpg" alt="银河之约"
-                                 style="width:80px;height:80px;border-radius:8px;object-fit:cover;opacity:0.7;">
+                                style="width:72px;height:72px;border-radius:8px;object-fit:cover;opacity:0.6;">
                         </div>
                     </div>
                 </div>
 
-                <!-- 右侧：详细数据 -->
+                <!-- 右侧数据 -->
                 <div class="hero-detail-right">
-
-                    <!-- 基础属性 -->
                     <h2>后羿</h2>
                     <p class="hero-subtitle">远游之人 · 团队持续输出核心</p>
 
-                    <!-- 属性数值 -->
+                    <!-- 属性 -->
                     <div class="hero-stats">
                         <div class="hero-stat">
                             <label>生存能力</label>
@@ -100,11 +96,10 @@
                         </div>
                     </div>
 
-                    <!-- 技能介绍 -->
+                    <!-- 技能 -->
                     <div class="hero-skills">
                         <h3>🔮 技能介绍</h3>
 
-                        <!-- 被动技能 -->
                         <div class="skill-item">
                             <img src="https://game.gtimg.cn/images/yxzj/img201606/skill/11100.png" alt="被动">
                             <div class="skill-item-info">
@@ -113,7 +108,6 @@
                             </div>
                         </div>
 
-                        <!-- 一技能 -->
                         <div class="skill-item">
                             <img src="https://game.gtimg.cn/images/yxzj/img201606/skill/11101.png" alt="1技能">
                             <div class="skill-item-info">
@@ -122,7 +116,6 @@
                             </div>
                         </div>
 
-                        <!-- 二技能 -->
                         <div class="skill-item">
                             <img src="https://game.gtimg.cn/images/yxzj/img201606/skill/11102.png" alt="2技能">
                             <div class="skill-item-info">
@@ -131,44 +124,41 @@
                             </div>
                         </div>
 
-                        <!-- 大招 -->
                         <div class="skill-item">
                             <img src="https://game.gtimg.cn/images/yxzj/img201606/skill/11103.png" alt="大招">
                             <div class="skill-item-info">
                                 <h4>灼日之矢（大招）</h4>
-                                <p>后羿向指定方向射出火焰箭，击中的敌人会受到法术伤害并晕眩。火焰箭飞行距离越远，晕眩时间越长（最多3.5秒）。这是全图控制技能，团战开团利器。</p>
+                                <p>后羿向指定方向射出火焰箭，击中的敌人会受到法术伤害并晕眩。火焰箭飞行距离越远，晕眩时间越长（最多3.5秒）。团战开团利器。</p>
                             </div>
                         </div>
                     </div>
 
                     <!-- 推荐出装 -->
-                    <div style="margin-top:var(--spacing-xl);">
-                        <h3 style="font-size:18px;margin-bottom:var(--spacing-md);">⚔️ 推荐出装</h3>
+                    <div style="margin-top:var(--spacing-lg);">
+                        <h3 style="color:var(--color-primary);font-size:16px;margin-bottom:var(--spacing-md);">⚔️ 推荐出装</h3>
                         <div style="display:flex;gap:var(--spacing-md);flex-wrap:wrap;">
-                            <div style="background:white;padding:12px 16px;border-radius:8px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,0.06);">
-                                <p style="font-size:14px;font-weight:bold;color:var(--color-secondary);">破晓</p>
-                                <p style="font-size:12px;color:var(--color-text-light);">物理攻击 + 50</p>
+                            <div style="background:#1a1a2e;padding:10px 16px;border-radius:8px;text-align:center;">
+                                <p style="color:#ccc;font-size:13px;font-weight:bold;">破晓</p>
+                                <p style="color:#555;font-size:11px;">物理攻击 +50</p>
                             </div>
-                            <div style="background:white;padding:12px 16px;border-radius:8px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,0.06);">
-                                <p style="font-size:14px;font-weight:bold;color:var(--color-secondary);">闪电匕首</p>
-                                <p style="font-size:12px;color:var(--color-text-light);">攻速 + 35%</p>
+                            <div style="background:#1a1a2e;padding:10px 16px;border-radius:8px;text-align:center;">
+                                <p style="color:#ccc;font-size:13px;font-weight:bold;">闪电匕首</p>
+                                <p style="color:#555;font-size:11px;">攻速 +35%</p>
                             </div>
-                            <div style="background:white;padding:12px 16px;border-radius:8px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,0.06);">
-                                <p style="font-size:14px;font-weight:bold;color:var(--color-secondary);">无尽战刃</p>
-                                <p style="font-size:12px;color:var(--color-text-light);">暴击率 + 20%</p>
+                            <div style="background:#1a1a2e;padding:10px 16px;border-radius:8px;text-align:center;">
+                                <p style="color:#ccc;font-size:13px;font-weight:bold;">无尽战刃</p>
+                                <p style="color:#555;font-size:11px;">暴击率 +20%</p>
                             </div>
-                            <div style="background:white;padding:12px 16px;border-radius:8px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,0.06);">
-                                <p style="font-size:14px;font-weight:bold;color:var(--color-secondary);">泣血之刃</p>
-                                <p style="font-size:12px;color:var(--color-text-light);">物理吸血 + 25%</p>
+                            <div style="background:#1a1a2e;padding:10px 16px;border-radius:8px;text-align:center;">
+                                <p style="color:#ccc;font-size:13px;font-weight:bold;">泣血之刃</p>
+                                <p style="color:#555;font-size:11px;">物理吸血 +25%</p>
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
 
-            <!-- 返回列表 -->
-            <div style="margin-top:var(--spacing-xl);text-align:center;">
+            <div style="text-align:center;margin-top:var(--spacing-xl);">
                 <a href="heroes.html" style="color:var(--color-primary);font-size:14px;">← 返回英雄列表</a>
             </div>
         </div>
@@ -184,7 +174,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>本网页为大学期末作业静态演示项目，非官方网站</p>
+                本网页为大学期末作业静态演示项目，非官方网站
             </div>
         </div>
     </footer>
