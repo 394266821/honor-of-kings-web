@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>游戏介绍 - 王者荣耀</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 关于页专属 */
+        .about-section { padding: var(--spacing-xl) 0; }
+        .about-intro {
+            background: white;
+            border-radius: var(--radius-md);
+            padding: var(--spacing-xl);
+            margin-bottom: var(--spacing-xl);
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+        }
+        .about-intro h2 { color: var(--color-primary); margin-bottom: var(--spacing-md); }
+        .about-intro p { font-size: 15px; line-height: 1.9; color: var(--color-text); margin-bottom: var(--spacing-md); }
+        .about-features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--spacing-lg);
+            margin: var(--spacing-xl) 0;
+        }
+        .feature-card {
+            background: white;
+            border-radius: var(--radius-md);
+            padding: var(--spacing-xl);
+            text-align: center;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+            transition: transform 0.3s;
+        }
+        .feature-card:hover { transform: translateY(-5px); }
+        .feature-icon {
+            font-size: 48px;
+            margin-bottom: var(--spacing-md);
+        }
+        .feature-card h3 { font-size: 18px; margin-bottom: 8px; color: var(--color-secondary); }
+        .feature-card p { font-size: 14px; color: var(--color-text-light); }
+        .about-timeline {
+            margin-top: var(--spacing-xl);
+            padding: var(--spacing-xl);
+            background: white;
+            border-radius: var(--radius-md);
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+        }
+        .timeline {
+            border-left: 3px solid var(--color-primary);
+            padding-left: var(--spacing-xl);
+            margin-left: var(--spacing-md);
+        }
+        .timeline-item {
+            position: relative;
+            margin-bottom: var(--spacing-xl);
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: calc(-1 * var(--spacing-xl) - 8px);
+            top: 5px;
+            width: 14px;
+            height: 14px;
+            background: var(--color-primary);
+            border-radius: 50%;
+            border: 3px solid white;
+        }
+        .timeline-item h4 { font-size: 16px; color: var(--color-primary); margin-bottom: 4px; }
+        .timeline-item p { font-size: 14px; color: var(--color-text-light); }
+        .timeline-item small { font-size: 12px; color: #aaa; }
+    </style>
+</head>
+<body>
+
+    <!-- 导航 -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="index.html" class="logo">👑 王者荣耀</a>
+                <ul class="nav-list">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="heroes.html">英雄</a></li>
+                    <li><a href="skins.html">皮肤</a></li>
+                    <li><a href="news.html">资讯</a></li>
+                    <li><a href="video.html">视频</a></li>
+                    <li><a href="esports.html">赛事</a></li>
+                    <li><a href="about.html" class="active">关于</a></li>
+                </ul>
+                <div class="nav-right">
+                    <a href="contact.html" class="btn-nav btn-login">反馈</a>
+                    <a href="download.html" class="btn-nav btn-download">下载游戏</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Banner -->
+    <div class="page-banner" style="background: linear-gradient(135deg, #0a1a0a 0%, #0a0a1e 100%);">
+        <h1>🎮 关于游戏</h1>
+        <p>了解王者荣耀的起源、玩法与文化</p>
+    </div>
+
+    <!-- 面包屑 -->
+    <div class="container">
+        <div class="breadcrumb">
+            <a href="index.html">首页</a>
+            <span>›</span>
+            <span>游戏介绍</span>
+        </div>
+    </div>
+
+    <!-- 游戏介绍主体 -->
+    <section class="about-section">
+        <div class="container">
+
+            <!-- 游戏简介 -->
+            <div class="about-intro">
+                <h2>📖 王者荣耀 简介</h2>
+                <p>
+                    <strong>王者荣耀</strong>是腾讯游戏天美工作室群研发的一款5V5英雄公平对战手游，于2015年11月26日正式公测。
+                    游戏以东方英雄为蓝本，融合了浓郁的中国风元素，玩家可以操控各具特色的英雄进行5v5实时对战。
+                </p>
+                <p>
+                    作为腾讯最受欢迎的移动游戏之一，王者荣耀日活跃用户数千万，涵盖了从普通玩家到职业电竞选手的完整生态。
+                    游戏内拥有115位风格各异的英雄，400余款精美皮肤，以及完善的排位赛、巅峰赛、战队赛等竞技体系。
+                </p>
+                <p>
+                    王者荣耀秉承"公平竞技、团队协作"的理念，通过不断更新内容和优化体验，为玩家提供最佳的MOBA手游体验。
+                    同时，KPL职业联赛的举办也推动了中国移动电竞产业的发展。
+                </p>
+            </div>
+
+            <!-- 游戏特色 -->
+            <h2 class="section-title">🎯 游戏<span>特色</span></h2>
+            <div class="about-features">
+
+                <div class="feature-card">
+                    <div class="feature-icon">⚔️</div>
+                    <h3>公平竞技</h3>
+                    <p>所有英雄可通过游戏内货币免费获取，不逼氪，纯粹靠技术和团队配合取胜</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">👥</div>
+                    <h3>团队协作</h3>
+                    <p>5v5对战，团队配合是核心，坦克、输出、辅助缺一不可，沟通致胜</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🏆</div>
+                    <h3>职业电竞</h3>
+                    <p>KPL联赛体系成熟，职业选手云集，观看顶级比赛，享受电竞乐趣</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🎨</div>
+                    <h3>中国元素</h3>
+                    <p>英雄原型来自中国历史神话人物，皮肤融合传统文化，传播国风魅力</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>随时开黑</h3>
+                    <p>手机端随时随地开战，单局15-20分钟，碎片时间即可享受竞技乐趣</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🔄</div>
+                    <h3>赛季更新</h3>
+                    <p>每3个月更新一个赛季，推出新英雄、新皮肤、新玩法，内容持续丰富</p>
+                </div>
+
+            </div>
+
+            <!-- 发展历程 -->
+            <div class="about-timeline">
+                <h2 style="text-align:center;margin-bottom:var(--spacing-xl);">📅 发展历程</h2>
+                <div class="timeline">
+
+                    <div class="timeline-item">
+                        <h4>王者荣耀公测</h4>
+                        <small>2015年11月26日</small>
+                        <p>游戏正式上线，开启了移动MOBA的新时代</p>
+                    </div>
+
+                    <div class="timeline-item">
+                        <h4>注册用户破亿</h4>
+                        <small>2017年</small>
+                        <p>成为全球用户最多的MOBA手游，日活用户超过8000万</p>
+                    </div>
+
+                    <div class="timeline-item">
+                        <h4>KPL职业联赛启动</h4>
+                        <small>2016年</small>
+                        <p>首届KPL开赛，标志着手游电竞职业化的开始</p>
+                    </div>
+
+                    <div class="timeline-item">
+                        <h4>签约头部职业战队</h4>
+                        <small>2017年-2018年</small>
+                        <p>eStar、QG、Hero等顶级俱乐部进入，建立完整的职业生态</p>
+                    </div>
+
+                    <div class="timeline-item">
+                        <h4>世界冠军杯举办</h4>
+                        <small>2019年</small>
+                        <p>首届世界冠军杯举行，邀请国际战队参赛，王者荣耀走向全球</p>
+                    </div>
+
+                    <div class="timeline-item">
+                        <h4>注册用户突破5亿</h4>
+                        <small>2021年</small>
+                        <p>成为全球最受欢迎的手游之一，品牌影响力持续扩大</p>
+                    </div>
+
+                    <div class="timeline-item">
+                        <h4>亚运会电竞项目</h4>
+                        <small>2022年</small>
+                        <p>王者荣耀入选2022年杭州亚运会电子竞技正式比赛项目</p>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- 团队信息 -->
+            <div style="background:white;border-radius:var(--radius-md);padding:var(--spacing-xl);margin-top:var(--spacing-xl);text-align:center;box-shadow:0 2px 12px rgba(0,0,0,0.08);">
+                <h2 style="color:var(--color-primary);margin-bottom:var(--spacing-md);">👥 开发团队</h2>
+                <p style="font-size:15px;color:var(--color-text);line-height:1.9;">
+                    <strong>天美工作室群（TiMi Studio Group）</strong><br>
+                    腾讯互动娱乐事业群旗下核心游戏研发团队<br>
+                    专注于精品手机游戏的研发与运营<br>
+                    代表作品：王者荣耀、绝地求生刺激战场、QQ飞车
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 底部 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-left">
+                    <h3>👑 王者荣耀</h3>
+                    <p>© 2024 腾讯游戏 · 期末作业演示项目</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>本网页为大学期末作业静态演示项目，非官方网站</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="back-to-top">↑</div>
+    <script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>英雄列表 - 王者荣耀</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 英雄列表页专属样式 */
+        .hero-list-section { padding: var(--spacing-xl) 0; }
+        .hero-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: var(--spacing-lg);
+        }
+        .hero-card-wrap {
+            position: relative;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        .hero-card-wrap:hover { transform: translateY(-5px); }
+        .hero-card-wrap img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            display: block;
+        }
+        .hero-card-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: var(--spacing-md);
+            background: linear-gradient(transparent, rgba(0,0,0,0.9));
+            color: white;
+        }
+        .hero-card-info h3 { font-size: 18px; margin-bottom: 4px; }
+        .hero-card-info p { font-size: 13px; color: #ccc; }
+        .hero-card-tag {
+            display: inline-block;
+            background: var(--color-primary);
+            color: #000;
+            font-size: 11px;
+            padding: 2px 8px;
+            border-radius: 10px;
+            margin-right: 5px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 顶部导航 -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="index.html" class="logo">👑 王者荣耀</a>
+                <ul class="nav-list">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="heroes.html" class="active">英雄</a></li>
+                    <li><a href="skins.html">皮肤</a></li>
+                    <li><a href="news.html">资讯</a></li>
+                    <li><a href="video.html">视频</a></li>
+                    <li><a href="esports.html">赛事</a></li>
+                    <li><a href="about.html">关于</a></li>
+                </ul>
+                <div class="nav-right">
+                    <a href="contact.html" class="btn-nav btn-login">反馈</a>
+                    <a href="download.html" class="btn-nav btn-download">下载游戏</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 页面 Banner -->
+    <div class="page-banner">
+        <h1>🏆 英雄资料库</h1>
+        <p>共 115 位英雄，涵盖所有职业定位</p>
+    </div>
+
+    <!-- 面包屑 -->
+    <div class="container">
+        <div class="breadcrumb">
+            <a href="index.html">首页</a>
+            <span>›</span>
+            <span>英雄列表</span>
+        </div>
+    </div>
+
+    <!-- 筛选栏 -->
+    <div class="container" style="padding: var(--spacing-lg) var(--spacing-md);">
+        <div class="filter-bar">
+            <button class="filter-btn active" data-filter="all">全部</button>
+            <button class="filter-btn" data-filter="fighter">战士</button>
+            <button class="filter-btn" data-filter="mage">法师</button>
+            <button class="filter-btn" data-filter="marksman">射手</button>
+            <button class="filter-btn" data-filter="assassin">刺客</button>
+            <button class="filter-btn" data-filter="tank">坦克</button>
+            <button class="filter-btn" data-filter="support">辅助</button>
+        </div>
+    </div>
+
+    <!-- 英雄列表 -->
+    <section class="hero-list-section">
+        <div class="container">
+            <div class="hero-grid" id="heroGrid">
+
+                <!-- 战士 -->
+                <div class="hero-card-wrap" data-type="fighter">
+                    <img src="https://game.gtimg.cn/images/yxzj/img201606/heroimg/123/123.jpg" alt="铠">
+                    <div class="hero-card-info">
+                        <h3>铠</h3>
+                        <p><span class="hero-card-tag">战士</span>单挑之王</p>
+                    </div>
+                </div>
+                <div class="hero-card-wrap" data-type="fighter">
+                    <img src="https://game.gtimg.cn/images/yxzj/img201606/heroimg/166/166.jpg" alt="曹操">
+                    <div class="hero-card-info">
+                        <h3>曹操</h3>
+                        <p><span class="hero-card-tag">战士</span>吸血狂魔</p>
+                    </div>
+                </div>
+                <div class="hero-card-wrap" data-type="fighter">
+                    <img src="https://game.gtimg.cn/images/yxzj/img201606/heroimg/157/157.jpg" alt="典韦">
+                    <div class="hero-card-info">
+                        <h3>典韦</h3>
+                        <p><span class="hero-card-tag">战士</span>站撸之王</p>
+                    </div>
+                </div>
+
+                <!-- 法师 -->
+                <div class="hero-card-wrap" data-type="mage">
+                    <img src="https://game.gtimg.cn/images/yxzj/img201606/heroimg/109/109.jpg" alt="妲己">
+                    <div class="hero-card-info">
+                        <h3>妲己</h3>
+                        <p><span class="hero-card-tag">法师</span>草丛杀手</p>
+                    </div>
+                </div>
+                <div class="hero-card-wrap" data-type="mage">
+                    <img src="https://game.gtimg.cn/images/yxzj/img201606/heroimg/142/142.jpg" alt="安琪拉">
+                    <div class="hero-card-info">
+                        <h3>安琪拉</h3>
+                        <p><span class="hero-card-tag">法师</span>爆发女王</p>
+                    </div>
+                </div>
+                <div class="hero-card-wrap" data-type="mage">
+                    <img src="https://game.gtimg.cn/images/yxzj/img201606/heroimg/127/127.jpg" alt="王昭君">
+                    <div class="hero-card-info">
+                        <h3>王昭君</h3>
+                        <p><span class="hero-card-tag">法师</span>冰霜女王</p>
+                    </div>
+                </div>
+
+                <!-- 射手 -->
+                <div class="hero-card-wrap" data-type="marksman">
+                    <img src="https://game.gtimg.cn/images/yxzj/img201606/heroimg/111/111.jpg" alt="后羿">
+                    <div class="hero-card-info">
+                        <h3>后羿</h3>
+                        <p><span class="hero-card-tag">射手</span>团战输出</p>
+                    </div>
+                </div>
+                <div class="hero-card-wrap" data-type="marksman">
+                    <img src="https://game.gtimg.cn/images/yxzj/img201606/heroimg/115/115.jpg" alt="鲁班七号">
+                    <div class="hero-card-info">
+                        <h3>鲁班七号</h3>
+                        <p><span class="hero-card-tag">射手</span>机关大师</p>
+                    </div>
+                </div>
+                <div class="hero-card-wrap" data-type="marksman">
+                    <img src="https://game.gtimg.cn/images/yxzj/img201606/heroimg/130/130.jpg" alt="马可波罗">
+                    <div class="hero-card-info">
+                        <h3>马可波罗</h3>
+                        <p><span class="hero-card-tag">射手</span>真假难辨</p>
+                    </div>
+                </div>
+
+                <!-- 刺客 -->
+                <div class="hero-card-wrap" data-type="assassin">
+                    <img src="https://game.gtimg.cn/images/yxzj/img201606/heroimg/116/116.jpg" alt="兰陵王">
+                    <div class="hero-card-info">
+                        <h3>兰陵王</h3>
+                        <p><span class="hero-card-tag">刺客</span>隐身刺客</p>
+                    </div>
+                </div>
+                <div class="hero-card-wrap" data-type="assassin">
+                    <img src="https://game.gtimg.cn/images/yxzj/img201606/heroimg/167/167.jpg" alt="孙悟空">
+                    <div class="hero-card-info">
+                        <h3>孙悟空</h3>
+                        <p><span class="hero-card-tag">刺客</span>齐天大圣</p>
+                    </div>
+                </div>
+
+                <!-- 坦克 -->
+                <div class="hero-card-wrap" data-type="tank">
+                    <img src="https://game.gtimg.cn/images/yxzj/img201606/heroimg/137/137.jpg" alt="张飞">
+                    <div class="hero-card-info">
+                        <h3>张飞</h3>
+                        <p><span class="hero-card-tag">坦克</span>护盾守护</p>
+                    </div>
+                </div>
+                <div class="hero-card-wrap" data-type="tank">
+                    <img src="https://game.gtimg.cn/images/yxzj/img201606/heroimg/108/108.jpg" alt="廉颇">
+                    <div class="hero-card-info">
+                        <h3>廉颇</h3>
+                        <p><span class="hero-card-tag">坦克</span>战场巨兽</p>
+                    </div>
+                </div>
+
+                <!-- 辅助 -->
+                <div class="hero-card-wrap" data-type="support">
+                    <img src="https://game.gtimg.cn/images/yxzj/img201606/heroimg/120/120.jpg" alt="牛魔">
+                    <div class="hero-card-info">
+                        <h3>牛魔</h3>
+                        <p><span class="hero-card-tag">辅助</span>双牛守护</p>
+                    </div>
+                </div>
+                <div class="hero-card-wrap" data-type="support">
+                    <img src="https://game.gtimg.cn/images/yxzj/img201606/heroimg/163/163.jpg" alt="孙膑">
+                    <div class="hero-card-info">
+                        <h3>孙膑</h3>
+                        <p><span class="hero-card-tag">辅助</span>时光控制</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- 分页 -->
+            <div class="pagination">
+                <button class="active" data-page="1">1</button>
+                <button data-page="2">2</button>
+                <button data-page="3">3</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 底部 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-left">
+                    <h3>👑 王者荣耀</h3>
+                    <p>© 2024 腾讯游戏 · 期末作业演示项目</p>
+                </div>
+                <div class="footer-links">
+                    <div>
+                        <h4>快速链接</h4>
+                        <a href="heroes.html">英雄资料</a>
+                        <a href="news.html">新闻资讯</a>
+                        <a href="esports.html">赛事中心</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>本网页为大学期末作业静态演示项目，非官方网站</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 回顶部按钮 -->
+    <div class="back-to-top">↑</div>
+
+    <script src="main.js"></script>
+</body>
+</html>

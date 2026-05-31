@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>视频中心 - 王者荣耀</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 视频页专属 */
+        .video-tabs {
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-xl);
+        }
+        .tab-btn {
+            padding: 8px 24px;
+            border: 1px solid var(--color-border);
+            background: white;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s;
+            color: var(--color-text);
+        }
+        .tab-btn:hover, .tab-btn.active {
+            background: var(--color-primary);
+            border-color: var(--color-primary);
+            color: var(--color-bg-dark);
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 导航 -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="index.html" class="logo">👑 王者荣耀</a>
+                <ul class="nav-list">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="heroes.html">英雄</a></li>
+                    <li><a href="skins.html">皮肤</a></li>
+                    <li><a href="news.html">资讯</a></li>
+                    <li><a href="video.html" class="active">视频</a></li>
+                    <li><a href="esports.html">赛事</a></li>
+                    <li><a href="about.html">关于</a></li>
+                </ul>
+                <div class="nav-right">
+                    <a href="contact.html" class="btn-nav btn-login">反馈</a>
+                    <a href="download.html" class="btn-nav btn-download">下载游戏</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Banner -->
+    <div class="page-banner">
+        <h1>🎬 视频中心</h1>
+        <p>赛事直播、攻略教学、新皮肤展示应有尽有</p>
+    </div>
+
+    <!-- 面包屑 -->
+    <div class="container">
+        <div class="breadcrumb">
+            <a href="index.html">首页</a>
+            <span>›</span>
+            <span>视频中心</span>
+        </div>
+    </div>
+
+    <!-- 视频列表 -->
+    <section style="padding: var(--spacing-xl) 0;">
+        <div class="container">
+
+            <!-- Tab 切换 -->
+            <div class="video-tabs">
+                <button class="tab-btn active" data-tab="match">赛事视频</button>
+                <button class="tab-btn" data-tab="guide">攻略教学</button>
+                <button class="tab-btn" data-tab="skin">皮肤展示</button>
+            </div>
+
+            <!-- 赛事视频 -->
+            <div class="tab-panel active" data-panel="match" style="display:block;">
+                <div class="video-grid">
+
+                    <div class="video-card">
+                        <div class="video-thumbnail">
+                            <img src="https://game.gtimg.cn/images/yxzj/video/cover/2024/0610_1.jpg" alt="KPL总决赛">
+                            <div class="video-play-icon">▶</div>
+                        </div>
+                        <div class="video-card-body">
+                            <h3>KPL春季赛总决赛精彩回顾</h3>
+                            <p>eStar vs AG · 巅峰对决 · 4小时前</p>
+                        </div>
+                    </div>
+
+                    <div class="video-card">
+                        <div class="video-thumbnail">
+                            <img src="https://game.gtimg.cn/images/yxzj/video/cover/2024/0605_1.jpg" alt="冠军杯">
+                            <div class="video-play-icon">▶</div>
+                        </div>
+                        <div class="video-card-body">
+                            <h3>2024冠军杯八强赛全程回顾</h3>
+                            <p>八强淘汰赛精彩集锦 · 2天前</p>
+                        </div>
+                    </div>
+
+                    <div class="video-card">
+                        <div class="video-thumbnail">
+                            <img src="https://game.gtimg.cn/images/yxzj/video/cover/2024/0528_1.jpg" alt="周最佳操作">
+                            <div class="video-play-icon">▶</div>
+                        </div>
+                        <div class="video-card-body">
+                            <h3>周最佳操作集锦 第12周</h3>
+                            <p>职业选手神仙操作合集 · 1周前</p>
+                        </div>
+                    </div>
+
+                    <div class="video-card">
+                        <div class="video-thumbnail">
+                            <img src="https://game.gtimg.cn/images/yxzj/video/cover/2024/0520_1.jpg" alt="选手采访">
+                            <div class="video-play-icon">▶</div>
+                        </div>
+                        <div class="video-card-body">
+                            <h3>Cat选手采访：冠军的秘诀</h3>
+                            <p>冠军选手访谈回顾 · 2周前</p>
+                        </div>
+                    </div>
+
+                    <div class="video-card">
+                        <div class="video-thumbnail">
+                            <img src="https://game.gtimg.cn/images/yxzj/video/cover/2024/0515_1.jpg" alt="表演赛">
+                            <div class="video-play-icon">▶</div>
+                        </div>
+                        <div class="video-card-body">
+                            <h3>明星表演赛：明星 VS 选手</h3>
+                            <p>群星璀璨对抗职业选手 · 3周前</p>
+                        </div>
+                    </div>
+
+                    <div class="video-card">
+                        <div class="video-thumbnail">
+                            <img src="https://game.gtimg.cn/images/yxzj/video/cover/2024/0510_1.jpg" alt="赛事预告">
+                            <div class="video-play-icon">▶</div>
+                        </div>
+                        <div class="video-card-body">
+                            <h3>S32赛季赛事宣传片</h3>
+                            <p>新赛季精彩预告 · 1个月前</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- 攻略教学 -->
+            <div class="tab-panel" data-panel="guide" style="display:none;">
+                <div class="video-grid">
+
+                    <div class="video-card">
+                        <div class="video-thumbnail">
+                            <img src="https://game.gtimg.cn/images/yxzj/video/cover/2024/0612_1.jpg" alt="后羿教学">
+                            <div class="video-play-icon">▶</div>
+                        </div>
+                        <div class="video-card-body">
+                            <h3>后羿从入门到精通：全方位教学</h3>
+                            <p>出装、铭文、对线技巧全解 · 1天前</p>
+                        </div>
+                    </div>
+
+                    <div class="video-card">
+                        <div class="video-thumbnail">
+                            <img src="https://game.gtimg.cn/images/yxzj/video/cover/2024/0608_1.jpg" alt="辅助教学">
+                            <div class="video-play-icon">▶</div>
+                        </div>
+                        <div class="video-card-body">
+                            <h3>辅助意识教学：如何开好团</h3>
+                            <p>团战站位与技能释放时机 · 3天前</p>
+                        </div>
+                    </div>
+
+                    <div class="video-card">
+                        <div class="video-thumbnail">
+                            <img src="https://game.gtimg.cn/images/yxzj/video/cover/2024/0601_1.jpg" alt="打野教学">
+                            <div class="video-play-icon">▶</div>
+                        </div>
+                        <div class="video-card-body">
+                            <h3>打野节奏把控：如何带飞全队</h3>
+                            <p>刷野路线与gank时机分析 · 1周前</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- 皮肤展示 -->
+            <div class="tab-panel" data-panel="skin" style="display:none;">
+                <div class="video-grid">
+
+                    <div class="video-card">
+                        <div class="video-thumbnail">
+                            <img src="https://game.gtimg.cn/images/yxzj/video/cover/2024/0615_1.jpg" alt="貂蝉皮肤">
+                            <div class="video-play-icon">▶</div>
+                        </div>
+                        <div class="video-card-body">
+                            <h3>貂蝉新皮肤"唤灵魔甲"展示</h3>
+                            <p>传说级皮肤特效预览 · 今天</p>
+                        </div>
+                    </div>
+
+                    <div class="video-card">
+                        <div class="video-thumbnail">
+                            <img src="https://game.gtimg.cn/images/yxzj/video/cover/2024/0611_1.jpg" alt="孙悟空皮肤">
+                            <div class="video-play-icon">▶</div>
+                        </div>
+                        <div class="video-card-body">
+                            <h3>孙悟空零号赤心皮肤鉴赏</h3>
+                            <p>传说级机甲皮肤全特效 · 2天前</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 底部 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-left">
+                    <h3>👑 王者荣耀</h3>
+                    <p>© 2024 腾讯游戏 · 期末作业演示项目</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>本网页为大学期末作业静态演示项目，非官方网站</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="back-to-top">↑</div>
+    <script src="main.js"></script>
+</body>
+</html>
