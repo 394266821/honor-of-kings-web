@@ -170,6 +170,86 @@ img { display: block; border: 0; }
     border-bottom: 1px solid #1e1e24;
 }
 
+/* ---------- 6.1 英雄大图展示区（对标官方 banner 区块）---------- */
+.hero-zone {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+    background: #0a0a0a;
+}
+.hero-zone-bg {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 1920px;
+    height: 100%;
+}
+.hero-zone-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+/* 半透明遮罩，让文字清晰可读 */
+.hero-zone::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 200px;
+    background: linear-gradient(transparent, rgba(22,22,22,0.95));
+}
+.hero-zone-content {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding-bottom: 40px;
+}
+.hero-zone-title h2 {
+    font-size: 32px;
+    color: #fff;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+.hero-zone-title p {
+    font-size: 16px;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 24px;
+}
+.hero-zone-cta {
+    display: flex;
+    gap: 16px;
+}
+.btn-hero {
+    padding: 10px 28px;
+    background: var(--color-gold);
+    color: #161616;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 2px;
+    transition: background 0.2s;
+}
+.btn-hero:hover { background: #e8b83a; }
+.btn-hero-outline {
+    padding: 10px 28px;
+    background: transparent;
+    color: #fff;
+    font-size: 14px;
+    border: 1px solid rgba(255,255,255,0.4);
+    border-radius: 2px;
+    transition: all 0.2s;
+}
+.btn-hero-outline:hover {
+    border-color: var(--color-gold);
+    color: var(--color-gold);
+}
+
 /* 小节标题 */
 .section-header {
     display: flex;
@@ -1221,6 +1301,18 @@ img { display: block; border: 0; }
         width: 36px;
         height: 36px;
         font-size: 16px;
+    }
+
+    /* 英雄大图展示区 */
+    .hero-zone {
+        height: 300px;
+    }
+    .hero-zone-title h2 { font-size: 22px; }
+    .hero-zone-title p { font-size: 14px; margin-bottom: 16px; }
+    .hero-zone-cta { gap: 12px; }
+    .btn-hero, .btn-hero-outline {
+        padding: 8px 20px;
+        font-size: 13px;
     }
 }
 
