@@ -5,9 +5,10 @@
 
 /* ---------- 0. 变量 ---------- */
 :root {
-    --bg: #0a0a0a;
-    --bg-section: #111116;
-    --bg-card: #18181f;
+    /* 官方背景色体系 */
+    --bg: #161616;           /* 页面主背景 = 官方 body 背景 */
+    --bg-section: #1c1c1c;   /* 区块背景，比主背景浅一点 */
+    --bg-card: #222222;      /* 卡片背景，再浅一点 */
     --color-primary: #c79b3d;
     --color-primary-dark: #a07a2e;
     --color-gold: #d4a017;
@@ -471,7 +472,7 @@ img { display: block; border: 0; }
 
 /* 出装 */
 .guide-builds {
-    background: #0d0d12;
+    background: var(--bg-section);
     border-radius: 4px;
     padding: 16px;
 }
@@ -505,7 +506,7 @@ img { display: block; border: 0; }
 .guide-item {
     width: 52px;
     height: 52px;
-    background: #1a1a24;
+    background: var(--bg-card);
     border-radius: 4px;
     overflow: hidden;
     display: flex;
@@ -521,7 +522,7 @@ img { display: block; border: 0; }
 }
 .guide-skill-row {
     flex: 1;
-    background: #0d0d12;
+    background: var(--bg-section);
     padding: 12px;
     border-radius: 4px;
 }
@@ -607,7 +608,7 @@ img { display: block; border: 0; }
 /* ---------- 15. 页面 Banner（内页） ---------- */
 .page-banner {
     height: 200px;
-    background: linear-gradient(135deg, #0a0a0a 0%, #1a1208 100%);
+    background: linear-gradient(180deg, #161616 0%, #1c1c1c 100%);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -912,7 +913,7 @@ img { display: block; border: 0; }
 .form-group textarea {
     width: 100%;
     padding: 12px 16px;
-    background: #0d0d12;
+    background: var(--bg-section);
     border: 1px solid #2a2a30;
     border-radius: 4px;
     color: #ccc;
@@ -1006,7 +1007,7 @@ img { display: block; border: 0; }
         top: 50px;
         left: 0;
         right: 0;
-        background: #0a0a0a;
+        background: var(--bg);
         border-bottom: 1px solid #222;
         z-index: 998;
     }
