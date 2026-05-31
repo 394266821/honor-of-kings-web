@@ -1,7 +1,6 @@
 /* ============================================
-   王者荣耀官网 - 全局 JavaScript v2
-   对标 pvp.qq.com 官方风格
-   代码简洁，注释详细
+   王者荣耀官网 - 全局 JavaScript v3
+   完全对标 pvp.qq.com 官方风格
    ============================================ */
 
 // ========== 1. 等待 DOM 加载完毕 ==========
@@ -19,8 +18,7 @@ document.addEventListener('DOMContentLoaded', function () {
 // ========== 2. 导航栏高亮 ==========
 function initNav() {
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-
-    const navLinks = document.querySelectorAll('.nav-list a');
+    const navLinks = document.querySelectorAll('.nav-item a');
     navLinks.forEach(link => {
         const href = link.getAttribute('href');
         if (href === currentPage || (currentPage === '' && href === 'index.html')) {
@@ -29,23 +27,51 @@ function initNav() {
     });
 }
 
-// ========== 3. Banner 轮播 ==========
+// ========== 3. 汉堡菜单（移动端） ==========
+function toggleMobileMenu() {
+    const nav = document.querySelector('.main-nav');
+    const btn = document.querySelector('.hamburger-btn');
+    if (nav && btn) {
+        nav.classList.toggle('open');
+        btn.classList.toggle('active');
+    }
+}
+
+// 点击导航链接后关闭菜单
+document.addEventListener('click', function(e) {
+    if (e.target.closest('.nav-item a')) {
+        const nav = document.querySelector('.main-nav');
+        const btn = document.querySelector('.hamburger-btn');
+        if (nav) nav.classList.remove('open');
+        if (btn) btn.classList.remove('active');
+    }
+});
+
+// ========== 4. Banner 轮播 ==========
 let bannerIndex = 0;
 let bannerTimer = null;
 
 function initBanner() {
-    const banner = document.querySelector('.banner');
-    if (!banner) return;
-
     const slides = document.querySelectorAll('.banner-slide');
+    const dotsContainer = document.querySelector('.banner-dots');
+
+    if (slides.length === 0) return;
+
+    // 动态生成 dots
+    if (dotsContainer) {
+        dotsContainer.innerHTML = '';
+        slides.forEach((_, i) => {
+            const dot = document.createElement('span');
+            if (i === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => goToSlide(i));
+            dotsContainer.appendChild(dot);
+        });
+    }
+
     const dots = document.querySelectorAll('.banner-dots span');
-    const prevBtn = document.querySelector('.banner-arrow.prev');
-    const nextBtn = document.querySelector('.banner-arrow.next');
-
     const total = slides.length;
-    if (total === 0) return;
 
-    function goTo(index) {
+    function goToSlide(index) {
         if (index < 0) index = total - 1;
         if (index >= total) index = 0;
         bannerIndex = index;
@@ -62,7 +88,7 @@ function initBanner() {
 
     function startAutoPlay() {
         bannerTimer = setInterval(() => {
-            goTo(bannerIndex + 1);
+            goToSlide(bannerIndex + 1);
         }, 4000);
     }
 
@@ -70,34 +96,23 @@ function initBanner() {
         clearInterval(bannerTimer);
     }
 
-    if (prevBtn) {
-        prevBtn.addEventListener('click', () => {
-            stopAutoPlay();
-            goTo(bannerIndex - 1);
-            startAutoPlay();
-        });
-    }
+    // 左右箭头
+    document.querySelector('.banner-arrow.prev')?.addEventListener('click', () => {
+        stopAutoPlay();
+        goToSlide(bannerIndex - 1);
+        startAutoPlay();
+    });
 
-    if (nextBtn) {
-        nextBtn.addEventListener('click', () => {
-            stopAutoPlay();
-            goTo(bannerIndex + 1);
-            startAutoPlay();
-        });
-    }
-
-    dots.forEach((dot, i) => {
-        dot.addEventListener('click', () => {
-            stopAutoPlay();
-            goTo(i);
-            startAutoPlay();
-        });
+    document.querySelector('.banner-arrow.next')?.addEventListener('click', () => {
+        stopAutoPlay();
+        goToSlide(bannerIndex + 1);
+        startAutoPlay();
     });
 
     startAutoPlay();
 }
 
-// ========== 4. 英雄卡片筛选 ==========
+// ========== 5. 英雄卡片筛选 ==========
 function initHeroFilter() {
     const filterBtns = document.querySelectorAll('.filter-btn');
     const heroCards = document.querySelectorAll('.hero-card-wrap');
@@ -123,7 +138,7 @@ function initHeroFilter() {
     });
 }
 
-// ========== 5. 回顶部按钮 ==========
+// ========== 6. 回顶部按钮 ==========
 function initBackToTop() {
     const btn = document.querySelector('.back-to-top');
     if (!btn) return;
@@ -137,7 +152,7 @@ function initBackToTop() {
     });
 }
 
-// ========== 6. 表单提交 ==========
+// ========== 7. 表单提交 ==========
 function initForm() {
     const form = document.querySelector('.form-box form');
     if (!form) return;
@@ -158,7 +173,7 @@ function initForm() {
     });
 }
 
-// ========== 7. Tab 切换 ==========
+// ========== 8. Tab 切换 ==========
 function initTabs() {
     const tabBtns = document.querySelectorAll('.tab-btn');
     const tabPanels = document.querySelectorAll('.tab-panel');
@@ -166,7 +181,8 @@ function initTabs() {
     if (tabBtns.length === 0) return;
 
     tabBtns.forEach(btn => {
-        btn.addEventListener('click', function () {
+        btn.addEventListener('click', function (e) {
+            e.preventDefault();
             const target = this.getAttribute('data-tab');
 
             tabBtns.forEach(b => b.classList.remove('active'));
@@ -179,9 +195,9 @@ function initTabs() {
     });
 }
 
-// ========== 8. 分页 ==========
+// ========== 9. 分页 ==========
 function goToPage(pageNum) {
-    const allItems = document.querySelectorAll('.news-item, .video-card');
+    const allItems = document.querySelectorAll('.news-item, .video-card, .hero-card-wrap');
     const itemsPerPage = 6;
     const start = (pageNum - 1) * itemsPerPage;
     const end = start + itemsPerPage;
@@ -194,6 +210,5 @@ function goToPage(pageNum) {
         btn.classList.toggle('active', parseInt(btn.getAttribute('data-page')) === pageNum);
     });
 
-    const list = document.querySelector('.news-list, .video-grid');
-    if (list) list.scrollIntoView({ behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
 }
