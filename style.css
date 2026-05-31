@@ -1,1319 +1,968 @@
 /* ============================================
-   王者荣耀官网 - 全局样式表 v2
-   对标 pvp.qq.com 官方风格
-   代码简洁，注释详细
+   王者荣耀官网 - 全局样式表 v3
+   完全对标 pvp.qq.com 官方风格
    ============================================ */
 
-/* ---------- 0. CSS变量 ---------- */
+/* ---------- 0. 变量 ---------- */
 :root {
-    --color-primary: #e8a91a;
-    --color-secondary: #1a1a2e;
-    --color-accent: #d4380d;
-    --color-bg-dark: #0d0d1a;
-    --color-bg-light: #f5f5f5;
-    --color-text: #333333;
-    --color-text-light: #888888;
-    --color-text-white: #ffffff;
-    --color-border: #e0e0e0;
-    --color-border-dark: #2a2a3a;
-    --spacing-sm: 8px;
-    --spacing-md: 16px;
-    --spacing-lg: 24px;
-    --spacing-xl: 40px;
-    --radius-sm: 4px;
-    --radius-md: 8px;
-    --radius-lg: 12px;
+    --bg: #0a0a0a;
+    --bg-section: #111116;
+    --bg-card: #18181f;
+    --color-primary: #c79b3d;
+    --color-primary-dark: #a07a2e;
+    --color-gold: #d4a017;
+    --text-white: #ffffff;
+    --text-gray: #999999;
+    --text-dark: #666666;
+    --border-dark: #2a2a30;
+    --spacing: 20px;
 }
 
-/* ---------- 1. 基础重置 ---------- */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
+/* ---------- 1. 重置 ---------- */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 body {
-    font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
-    font-size: 16px;
+    background: var(--bg);
+    color: var(--text-white);
+    font-family: "Microsoft YaHei", "PingFang SC", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
     line-height: 1.6;
-    color: var(--color-text);
-    background-color: var(--color-bg-light);
-    min-height: 100vh;
+    min-width: 1200px; /* 官方最小宽度 */
 }
 
-a {
-    text-decoration: none;
-    color: inherit;
-}
-
-ul {
-    list-style: none;
-}
-
-img {
-    max-width: 100%;
-    display: block;
-}
-
-/* ---------- 2. 通用布局 ---------- */
+/* ---------- 2. 通用 ---------- */
+a { color: inherit; text-decoration: none; }
+ul { list-style: none; }
+img { display: block; border: 0; }
 .container {
     width: 1200px;
     margin: 0 auto;
-    padding: 0 var(--spacing-md);
 }
 
-.section-title {
-    font-size: 26px;
-    color: var(--color-text-white);
-    text-align: center;
-    margin-bottom: var(--spacing-xl);
-}
-
-.section-title span {
-    color: var(--color-primary);
-}
-
-/* ---------- 3. 顶部工具栏（登录/下载）---------- */
+/* ---------- 3. 顶部工具栏 ---------- */
 .top-bar {
-    background-color: var(--color-bg-dark);
+    background: #000;
     height: 36px;
+    line-height: 36px;
+    border-bottom: 1px solid #222;
+}
+.top-bar-inner {
     display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    padding: 0 var(--spacing-xl);
-    gap: var(--spacing-lg);
-    font-size: 13px;
-}
-
-.top-bar a {
-    color: #aaa;
-    transition: color 0.3s;
-}
-
-.top-bar a:hover {
-    color: var(--color-primary);
-}
-
-.top-bar .split {
-    color: #444;
-}
-
-/* ---------- 4. 主导航栏 ---------- */
-.header {
-    background-color: var(--color-bg-dark);
-    border-top: 2px solid var(--color-primary);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-
-.nav {
-    display: flex;
-    align-items: center;
-    height: 64px;
     justify-content: space-between;
+    align-items: center;
+    height: 100%;
 }
+.top-bar-left { font-size: 13px; color: #777; }
+.top-bar-right a,
+.top-bar-right span { color: #888; font-size: 13px; }
+.top-bar-right a:hover { color: var(--color-gold); }
+.top-bar-right .split { color: #444; margin: 0 8px; }
 
-/* Logo */
-.logo {
+/* ---------- 4. 主导航 ---------- */
+.header {
+    background: #000;
+    border-bottom: 1px solid #222;
+    height: 80px;
+}
+.header-inner {
     display: flex;
     align-items: center;
-    color: var(--color-primary);
-    font-size: 20px;
-    font-weight: bold;
-    letter-spacing: 2px;
-    min-width: 180px;
+    height: 80px;
+    gap: 40px;
 }
-
 .logo img {
-    height: 36px;
-    margin-right: 8px;
+    height: 40px;
+    width: auto;
 }
 
-/* 导航链接 - 与官方一致 */
-.nav-list {
-    display: flex;
-    align-items: center;
-    height: 100%;
-}
-
-.nav-list li {
-    position: relative;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+/* 主导航 */
+.main-nav { flex: 1; }
+.nav-list { display: flex; gap: 0; }
+.nav-item a {
+    display: block;
+    padding: 0 22px;
+    height: 80px;
+    line-height: 80px;
+    color: #ccc;
+    font-size: 15px;
     text-align: center;
-    width: 100px;
+    transition: color 0.2s;
+    position: relative;
 }
-
-.nav-list li a {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    color: #cccccc;
-    font-size: 14px;
-    transition: all 0.3s;
-    padding: 0 10px;
-}
-
-.nav-list li a .nav-en {
+.nav-item a span:last-child {
+    display: block;
     font-size: 10px;
-    color: #777;
-    margin-top: 2px;
+    color: #666;
+    letter-spacing: 1px;
+    line-height: 1;
+    margin-top: -18px;
 }
-
-.nav-list li a:hover,
-.nav-list li a.active {
-    color: var(--color-primary);
-    background: rgba(232, 169, 26, 0.1);
-}
-
-.nav-list li a:hover .nav-en,
-.nav-list li a.active .nav-en {
-    color: var(--color-primary);
-}
-
-/* 导航下划线 */
-.nav-list li::after {
+.nav-item a:hover,
+.nav-item a.active { color: var(--color-gold); }
+.nav-item a.active::after {
     content: '';
     position: absolute;
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 0;
-    height: 3px;
-    background: var(--color-primary);
-    transition: width 0.3s;
+    width: 30px;
+    height: 2px;
+    background: var(--color-gold);
 }
 
-.nav-list li:hover::after,
-.nav-list li.active::after {
-    width: 80%;
-}
-
-/* 右侧下载按钮 */
-.nav-right {
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-md);
-}
-
-.btn-download-nav {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    background: var(--color-accent);
-    color: white;
+/* 导航下载按钮 */
+.header-right { }
+.btn-download-header {
+    display: block;
     padding: 8px 20px;
-    border-radius: var(--radius-sm);
+    background: var(--color-primary);
+    color: #000;
     font-size: 14px;
     font-weight: bold;
-    transition: background 0.3s;
+    border-radius: 3px;
+    transition: background 0.2s;
 }
+.btn-download-header:hover { background: var(--color-gold); }
 
-.btn-download-nav:hover {
-    background: #e84010;
-}
-
-/* ---------- 5. 轮播 Banner ---------- */
-.banner {
-    position: relative;
-    width: 100%;
-    height: 520px;
+/* ---------- 5. Banner 轮播 ---------- */
+.home-banner {
+    height: 480px;
     overflow: hidden;
-    background: var(--color-bg-dark);
+    position: relative;
+    background: #000;
 }
-
 .banner-slides {
     display: flex;
     height: 100%;
     transition: transform 0.5s ease;
 }
-
 .banner-slide {
-    min-width: 100%;
+    flex: 0 0 100%;
     height: 100%;
-    position: relative;
 }
-
 .banner-slide img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
-
-.banner-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, rgba(13,13,26,0.9) 0%, rgba(13,13,26,0.4) 50%, transparent 100%);
-}
-
-.banner-content {
-    position: absolute;
-    left: 8%;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 2;
-    color: var(--color-text-white);
-}
-
-.banner-content h1 {
-    font-size: 52px;
-    margin-bottom: var(--spacing-md);
-    text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
-}
-
-.banner-content p {
-    font-size: 18px;
-    margin-bottom: var(--spacing-lg);
-    color: #ccc;
-}
-
-.banner-content .btn-primary {
-    background: var(--color-primary);
-    color: #1a1a1a;
-    padding: 12px 36px;
-    border-radius: var(--radius-sm);
-    font-size: 16px;
-    font-weight: bold;
-    display: inline-block;
-    transition: all 0.3s;
-    border: none;
-    cursor: pointer;
-}
-
-.banner-content .btn-primary:hover {
-    background: #ffb933;
-    transform: translateY(-2px);
-}
-
 .banner-dots {
     position: absolute;
     bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
-    gap: 10px;
-    z-index: 2;
+    gap: 8px;
 }
-
 .banner-dots span {
-    width: 14px;
-    height: 14px;
+    width: 8px;
+    height: 8px;
     border-radius: 50%;
-    background: rgba(255,255,255,0.3);
+    background: rgba(255,255,255,0.4);
     cursor: pointer;
-    transition: all 0.3s;
+}
+.banner-dots span.active { background: var(--color-gold); }
+
+/* ---------- 6. 主内容区域 ---------- */
+.home-main { background: var(--bg); }
+.home-section {
+    padding: 40px 0;
+    border-bottom: 1px solid #1e1e24;
 }
 
-.banner-dots span.active {
-    background: var(--color-primary);
-    width: 36px;
-    border-radius: 7px;
+/* 小节标题 */
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
 }
+.section-header h2 {
+    font-size: 20px;
+    color: var(--text-white);
+    font-weight: normal;
+}
+.section-header h2::before {
+    content: '·';
+    color: var(--color-gold);
+    margin-right: 6px;
+    font-size: 24px;
+}
+.section-more {
+    color: var(--text-gray);
+    font-size: 13px;
+}
+.section-more:hover { color: var(--color-gold); }
 
-.banner-arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 44px;
-    height: 80px;
-    background: rgba(0,0,0,0.4);
+/* ---------- 7. 新闻中心（官方风格：无图片）---------- */
+.news-center { background: var(--bg); }
+
+.news-tab-bar {
     display: flex;
     align-items: center;
-    justify-content: center;
-    color: white;
-    font-size: 28px;
-    cursor: pointer;
-    z-index: 2;
-    transition: background 0.3s;
-    user-select: none;
-}
-
-.banner-arrow:hover {
-    background: var(--color-primary);
-    color: #1a1a1a;
-}
-
-.banner-arrow.prev { left: 0; border-radius: 0 8px 8px 0; }
-.banner-arrow.next { right: 0; border-radius: 8px 0 0 8px; }
-
-/* ---------- 6. 内容区通用样式 ---------- */
-.main-content {
-    background: var(--color-bg-dark);
-    padding: var(--spacing-xl) 0;
-}
-
-.main-content h2 {
-    color: var(--color-text-white);
-    font-size: 22px;
-    margin-bottom: var(--spacing-lg);
-}
-
-.main-content h2 .highlight {
-    color: var(--color-primary);
-}
-
-/* ---------- 7. 新闻模块（与官方一致的Tab）---------- */
-.news-module {
-    margin-bottom: var(--spacing-xl);
-}
-
-.news-tabs {
-    display: flex;
-    align-items: center;
+    height: 44px;
+    border-bottom: 2px solid #2a2a30;
+    margin-bottom: 16px;
     gap: 0;
-    border-bottom: 1px solid #333;
-    margin-bottom: var(--spacing-md);
 }
-
-.news-tabs a {
-    padding: 8px 20px;
+.news-tab-bar a {
+    padding: 0 20px;
+    height: 44px;
+    line-height: 44px;
+    font-size: 15px;
     color: #888;
-    font-size: 14px;
     border-bottom: 2px solid transparent;
-    transition: all 0.3s;
+    margin-bottom: -2px;
+    transition: all 0.2s;
 }
-
-.news-tabs a:hover,
-.news-tabs a.active {
-    color: var(--color-primary);
-    border-bottom-color: var(--color-primary);
+.news-tab-bar a:hover { color: var(--text-white); }
+.news-tab-bar a.active {
+    color: var(--color-gold);
+    border-bottom-color: var(--color-gold);
 }
-
-.news-tabs .more {
+.news-tab-bar .news-more {
     margin-left: auto;
-    color: #666;
+    color: var(--text-gray);
     font-size: 13px;
 }
 
-.news-tabs .more:hover {
-    color: var(--color-primary);
+.news-list-official {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
 }
-
-.news-grid {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: var(--spacing-md);
+.news-row {
+    display: flex;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid #1e1e24;
+    gap: 12px;
+    transition: background 0.2s;
 }
-
-.news-item {
-    background: #1a1a2e;
-    border-radius: var(--radius-md);
-    overflow: hidden;
-    transition: transform 0.3s;
-    cursor: pointer;
+.news-row:hover { background: rgba(255,255,255,0.02); padding-left: 8px; }
+.news-tag {
+    font-size: 12px;
+    padding: 2px 8px;
+    border-radius: 2px;
+    background: var(--color-gold);
+    color: #000;
+    font-weight: bold;
+    flex-shrink: 0;
+    min-width: 48px;
+    text-align: center;
 }
-
-.news-item:hover {
-    transform: translateY(-4px);
+.news-title {
+    flex: 1;
+    font-size: 15px;
+    color: var(--text-white);
 }
-
-.news-item img {
-    width: 100%;
-    height: 130px;
-    object-fit: cover;
-}
-
-.news-item-info {
-    padding: var(--spacing-sm);
-}
-
-.news-item-info .tag {
-    display: inline-block;
-    background: var(--color-accent);
-    color: white;
-    font-size: 10px;
-    padding: 1px 6px;
-    border-radius: 3px;
-    margin-bottom: 4px;
-}
-
-.news-item-info .title {
-    color: #ccc;
+.news-date {
+    color: var(--text-dark);
     font-size: 13px;
-    line-height: 1.4;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+    flex-shrink: 0;
 }
 
-.news-item-info .date {
-    color: #555;
-    font-size: 11px;
-    margin-top: 4px;
-}
+/* ---------- 8. 最新皮肤 ---------- */
+.skin-section { background: var(--bg-section); }
 
-/* ---------- 8. 英雄攻略模块 ---------- */
-.hero-guide {
+.skin-showcase {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: var(--spacing-lg);
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
 }
 
-.hero-card {
-    background: #1a1a2e;
-    border-radius: var(--radius-md);
-    overflow: hidden;
+/* 主皮肤 */
+.skin-main-card {
     position: relative;
-    cursor: pointer;
-    transition: transform 0.3s;
-}
-
-.hero-card:hover {
-    transform: translateY(-4px);
-}
-
-.hero-card img {
-    width: 100%;
     height: 300px;
-    object-fit: cover;
+    border-radius: 4px;
+    overflow: hidden;
+    cursor: pointer;
 }
-
-.hero-card-overlay {
+.skin-main-img {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.skin-main-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s;
+}
+.skin-main-card:hover .skin-main-img img { transform: scale(1.03); }
+.skin-hover-btn {
+    position: absolute;
+    bottom: 16px;
+    right: 16px;
+    padding: 6px 16px;
+    background: rgba(0,0,0,0.7);
+    border: 1px solid var(--color-gold);
+    color: var(--color-gold);
+    font-size: 13px;
+    border-radius: 3px;
+}
+.skin-main-info {
     position: absolute;
     bottom: 0;
     left: 0;
-    width: 100%;
-    padding: var(--spacing-md);
-    background: linear-gradient(transparent, rgba(0,0,0,0.95));
-    color: white;
+    right: 0;
+    padding: 16px;
+    background: linear-gradient(transparent, rgba(0,0,0,0.9));
 }
-
-.hero-card-overlay h3 {
-    font-size: 18px;
-    margin-bottom: 4px;
-}
-
-.hero-card-overlay p {
-    font-size: 13px;
-    color: #aaa;
-}
-
-.hero-tag {
-    display: inline-block;
-    background: var(--color-primary);
-    color: #000;
-    font-size: 10px;
+.skin-level {
+    font-size: 12px;
     padding: 2px 8px;
-    border-radius: 10px;
+    background: var(--color-gold);
+    color: #000;
     font-weight: bold;
-    margin-right: 4px;
+    border-radius: 2px;
 }
+.skin-main-info h3 {
+    font-size: 18px;
+    margin-top: 6px;
+    color: #fff;
+}
+.skin-main-info p { color: #aaa; font-size: 13px; }
 
-/* ---------- 9. 最新皮肤/英雄 模块 ---------- */
-.skin-hero-module {
+/* 次皮肤列表 */
+.skin-sub-list {
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
-    gap: var(--spacing-md);
-    margin-top: var(--spacing-lg);
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 16px;
 }
-
-.skin-hero-card {
-    position: relative;
-    border-radius: var(--radius-md);
+.skin-sub-card {
+    background: var(--bg-card);
+    border-radius: 4px;
     overflow: hidden;
     cursor: pointer;
-    background: #1a1a2e;
+    display: flex;
+    flex-direction: column;
+}
+.skin-sub-card img {
+    width: 100%;
+    height: 110px;
+    object-fit: cover;
+    transition: transform 0.4s;
+}
+.skin-sub-card:hover img { transform: scale(1.05); }
+.skin-sub-info {
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.skin-sub-info span:first-child {
+    font-size: 13px;
+    color: #ccc;
+}
+.skin-level-tag {
+    font-size: 11px;
+    padding: 2px 6px;
+    background: #333;
+    color: var(--color-gold);
+    border-radius: 2px;
 }
 
-.skin-hero-card:first-child {
+/* ---------- 9. 最新英雄 ---------- */
+.hero-section { background: var(--bg); }
+
+.hero-list-official {
+    display: flex;
+    gap: 16px;
+}
+.hero-item-card {
+    flex: 1;
+    background: var(--bg-card);
+    border-radius: 4px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+.hero-item-card:hover { transform: translateY(-4px); }
+.hero-item-img {
+    height: 180px;
+    overflow: hidden;
+}
+.hero-item-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s;
+}
+.hero-item-card:hover .hero-item-img img { transform: scale(1.05); }
+.hero-item-info {
+    padding: 14px;
+    text-align: center;
+}
+.hero-item-info h3 { font-size: 16px; color: #fff; margin-bottom: 4px; }
+.hero-item-info p { font-size: 12px; color: #888; }
+
+/* ---------- 10. 内容中心 ---------- */
+.content-center-section { background: var(--bg-section); }
+
+.content-center-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+.content-card-type {
+    position: relative;
+    height: 200px;
+    border-radius: 4px;
+    overflow: hidden;
+    cursor: pointer;
+}
+.content-card-type img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s;
+}
+.content-card-type:hover img { transform: scale(1.05); }
+.content-card-label {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 14px;
+    background: linear-gradient(transparent, rgba(0,0,0,0.85));
+    font-size: 16px;
+    color: #fff;
+}
+
+/* ---------- 11. 英雄攻略（详细）---------- */
+.hero-guide-section { background: var(--bg); }
+
+.hero-guide-main {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 24px;
+    background: var(--bg-card);
+    border-radius: 4px;
+    overflow: hidden;
+}
+.hero-guide-left {
+    position: relative;
     height: 360px;
 }
-
-.skin-hero-card img {
+.hero-guide-left img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
-
-.skin-hero-card .label {
-    position: absolute;
-    top: 12px;
-    left: 12px;
-    background: var(--color-primary);
-    color: #000;
-    font-size: 12px;
-    padding: 4px 10px;
-    border-radius: 4px;
-    font-weight: bold;
-}
-
-.skin-hero-card .info {
+.hero-guide-name {
     position: absolute;
     bottom: 0;
     left: 0;
-    width: 100%;
-    padding: var(--spacing-md);
+    right: 0;
+    padding: 16px;
     background: linear-gradient(transparent, rgba(0,0,0,0.9));
-    color: white;
 }
+.hero-guide-name h3 { font-size: 20px; color: #fff; }
+.hero-guide-name p { font-size: 13px; color: #aaa; margin-top: 4px; }
 
-.skin-hero-card .info h4 {
-    font-size: 16px;
-}
-
-.skin-hero-card .info p {
-    font-size: 12px;
-    color: #aaa;
-}
-
-/* ---------- 10. 赛事模块 ---------- */
-.esports-module {
-    margin-top: var(--spacing-lg);
-}
-
-.esports-cards {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: var(--spacing-md);
-}
-
-.esports-card {
-    background: #1a1a2e;
-    border-radius: var(--radius-md);
-    overflow: hidden;
-    transition: transform 0.3s;
-    cursor: pointer;
-}
-
-.esports-card:hover {
-    transform: translateY(-4px);
-}
-
-.esports-card img {
-    width: 100%;
-    height: 140px;
-    object-fit: cover;
-}
-
-.esports-card-info {
-    padding: var(--spacing-sm);
-}
-
-.esports-card-info h4 {
-    color: #ccc;
-    font-size: 14px;
-    margin-bottom: 4px;
-}
-
-.esports-card-info p {
-    color: #666;
-    font-size: 12px;
-}
-
-/* ---------- 11. 内容中心模块 ---------- */
-.content-module {
-    margin-top: var(--spacing-lg);
-}
-
-.content-cards {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--spacing-lg);
-}
-
-.content-card {
-    background: #1a1a2e;
-    border-radius: var(--radius-md);
-    overflow: hidden;
-    display: flex;
-    cursor: pointer;
-    transition: transform 0.3s;
-}
-
-.content-card:hover {
-    transform: translateY(-4px);
-}
-
-.content-card img {
-    width: 200px;
-    height: 140px;
-    object-fit: cover;
-}
-
-.content-card-info {
-    padding: var(--spacing-md);
+.hero-guide-right {
+    padding: 24px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    gap: 24px;
 }
 
-.content-card-info h4 {
-    color: var(--color-primary);
-    font-size: 16px;
-    margin-bottom: 6px;
+/* 出装 */
+.guide-builds {
+    background: #0d0d12;
+    border-radius: 4px;
+    padding: 16px;
 }
-
-.content-card-info p {
-    color: #888;
-    font-size: 13px;
-}
-
-/* ---------- 12. 底部 Footer ---------- */
-.footer {
-    background-color: var(--color-bg-dark);
-    color: #666;
-    padding: var(--spacing-xl) 0 var(--spacing-lg);
-    border-top: 1px solid #222;
-}
-
-.footer-content {
+.guide-build-title {
     display: flex;
     justify-content: space-between;
-    gap: var(--spacing-xl);
-    margin-bottom: var(--spacing-lg);
+    align-items: center;
+    margin-bottom: 14px;
 }
-
-.footer-left h3 {
-    color: var(--color-primary);
-    font-size: 18px;
-    margin-bottom: var(--spacing-sm);
-}
-
-.footer-left p {
-    font-size: 13px;
-    line-height: 1.8;
-    color: #555;
-}
-
-.footer-links {
-    display: flex;
-    gap: var(--spacing-xl);
-}
-
-.footer-links div h4 {
-    color: #888;
-    margin-bottom: var(--spacing-md);
+.guide-build-title > span:first-child {
     font-size: 14px;
+    color: var(--color-gold);
 }
-
-.footer-links div a {
-    display: block;
-    color: #555;
-    font-size: 13px;
-    margin-bottom: 6px;
-    transition: color 0.3s;
-}
-
-.footer-links div a:hover {
-    color: var(--color-primary);
-}
-
-.footer-bottom {
-    text-align: center;
-    padding-top: var(--spacing-lg);
-    border-top: 1px solid #1e1e1e;
+.guide-build-tabs { display: flex; gap: 8px; }
+.guide-build-tabs a {
+    padding: 3px 10px;
     font-size: 12px;
+    color: #888;
+    border: 1px solid #333;
+    border-radius: 2px;
+}
+.guide-build-tabs a.active,
+.guide-build-tabs a:hover {
+    border-color: var(--color-gold);
+    color: var(--color-gold);
+}
+.guide-items {
+    display: flex;
+    gap: 8px;
+}
+.guide-item {
+    width: 52px;
+    height: 52px;
+    background: #1a1a24;
+    border-radius: 4px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.guide-item img { width: 36px; height: 36px; }
+
+/* 技能 */
+.guide-skills {
+    display: flex;
+    gap: 16px;
+}
+.guide-skill-row {
+    flex: 1;
+    background: #0d0d12;
+    padding: 12px;
+    border-radius: 4px;
+}
+.guide-skill-label {
+    display: block;
+    font-size: 11px;
+    color: #666;
+    margin-bottom: 4px;
+}
+.guide-skill-name { font-size: 13px; color: #ccc; }
+
+/* ---------- 12. 赛事中心 ---------- */
+.esports-home-section { background: var(--bg-section); }
+
+.esports-home-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+}
+.esports-home-card {
+    position: relative;
+    height: 180px;
+    border-radius: 4px;
+    overflow: hidden;
+    cursor: pointer;
+}
+.esports-home-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s;
+}
+.esports-home-card:hover img { transform: scale(1.05); }
+.esports-home-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 14px;
+    background: linear-gradient(transparent, rgba(0,0,0,0.9));
+}
+.esports-home-overlay h4 { font-size: 14px; color: #fff; }
+.esports-home-overlay p { font-size: 12px; color: #888; margin-top: 4px; }
+
+/* ---------- 13. Footer ---------- */
+.footer {
+    background: #000;
+    border-top: 1px solid #1e1e24;
+    padding: 40px 0 20px;
+}
+.footer-content { margin-bottom: 24px; }
+.footer-left p { color: #555; font-size: 12px; line-height: 1.8; }
+.footer-left img { margin-bottom: 10px; }
+.footer-bottom-center {
+    text-align: center;
+    padding-top: 16px;
+    border-top: 1px solid #1e1e24;
     color: #444;
+    font-size: 12px;
 }
 
-.footer-bottom a {
-    color: #555;
+/* ---------- 14. 回顶部 ---------- */
+.back-to-top {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    width: 44px;
+    height: 44px;
+    background: #222;
+    color: #888;
+    font-size: 20px;
+    text-align: center;
+    line-height: 44px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    transition: all 0.3s;
+    z-index: 100;
 }
+.back-to-top:hover { background: var(--color-primary); color: #000; }
+.back-to-top.show { display: block; }
 
-.footer-bottom a:hover {
-    color: var(--color-primary);
-}
-
-/* ---------- 13. 英雄列表页 ---------- */
+/* ---------- 15. 页面 Banner（内页） ---------- */
 .page-banner {
-    height: 260px;
-    background: linear-gradient(135deg, #0d0d1a 0%, #1a0f00 100%);
+    height: 200px;
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1208 100%);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    color: white;
     text-align: center;
+    border-bottom: 1px solid #222;
 }
-
-.page-banner h1 {
-    font-size: 38px;
-    color: var(--color-primary);
-    margin-bottom: var(--spacing-sm);
+.page-banner h1 { font-size: 32px; font-weight: normal; margin-bottom: 8px; }
+.page-banner h1::before {
+    content: '·';
+    color: var(--color-gold);
+    margin-right: 8px;
 }
+.page-banner p { color: var(--text-gray); font-size: 14px; }
 
-.page-banner p {
-    font-size: 15px;
-    color: #777;
-}
-
+/* 面包屑 */
 .breadcrumb {
-    padding: var(--spacing-md) 0;
+    padding: 16px 0;
     font-size: 13px;
-    color: #666;
+    color: #555;
 }
+.breadcrumb a { color: #777; }
+.breadcrumb a:hover { color: var(--color-gold); }
+.breadcrumb span { margin: 0 6px; color: #444; }
 
-.breadcrumb a {
-    color: #888;
-}
-
-.breadcrumb a:hover {
-    color: var(--color-primary);
-}
-
-.breadcrumb span {
-    margin: 0 8px;
-}
+/* ---------- 16. 内页主内容 ---------- */
+.main-content { padding: 40px 0; background: var(--bg); }
 
 /* 筛选栏 */
 .filter-bar {
     display: flex;
-    gap: var(--spacing-md);
-    justify-content: center;
-    margin-bottom: var(--spacing-xl);
-    flex-wrap: wrap;
+    gap: 0;
+    border-bottom: 2px solid #2a2a30;
+    margin-bottom: 30px;
 }
-
 .filter-btn {
-    padding: 8px 20px;
-    border-radius: 20px;
-    border: 1px solid #333;
-    background: transparent;
-    cursor: pointer;
+    padding: 0 24px;
+    height: 44px;
+    line-height: 44px;
     font-size: 14px;
-    transition: all 0.3s;
     color: #888;
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -2px;
+    cursor: pointer;
+    transition: all 0.2s;
 }
-
-.filter-btn:hover,
+.filter-btn:hover { color: #ccc; }
 .filter-btn.active {
-    background: var(--color-primary);
-    border-color: var(--color-primary);
-    color: #000;
-    font-weight: bold;
+    color: var(--color-gold);
+    border-bottom-color: var(--color-gold);
 }
 
 /* 英雄网格 */
 .hero-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: var(--spacing-md);
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 16px;
 }
-
 .hero-card-wrap {
-    position: relative;
-    border-radius: var(--radius-md);
+    background: var(--bg-card);
+    border-radius: 4px;
     overflow: hidden;
     cursor: pointer;
     transition: transform 0.3s;
-    background: #1a1a2e;
 }
-
-.hero-card-wrap:hover {
-    transform: translateY(-4px);
-}
-
+.hero-card-wrap:hover { transform: translateY(-4px); }
 .hero-card-wrap img {
     width: 100%;
-    height: 280px;
+    height: 160px;
     object-fit: cover;
-    display: block;
 }
-
 .hero-card-info {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    padding: var(--spacing-md);
-    background: linear-gradient(transparent, rgba(0,0,0,0.9));
-    color: white;
-}
-
-.hero-card-info h3 {
-    font-size: 16px;
-    margin-bottom: 4px;
-}
-
-.hero-card-info p {
-    font-size: 12px;
-    color: #aaa;
-}
-
-/* ---------- 14. 英雄详情页 ---------- */
-.hero-detail-section {
-    background: var(--color-bg-dark);
-    padding: var(--spacing-xl) 0;
-}
-
-.hero-detail-wrapper {
-    display: flex;
-    gap: var(--spacing-xl);
-}
-
-.hero-detail-left {
-    flex: 0 0 380px;
-}
-
-.hero-detail-left img {
-    width: 100%;
-    border-radius: var(--radius-md);
-    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-}
-
-.hero-detail-right {
-    flex: 1;
-    color: white;
-}
-
-.hero-detail-right h2 {
-    font-size: 30px;
-    color: var(--color-primary);
-    margin-bottom: 4px;
-}
-
-.hero-detail-right .hero-subtitle {
-    color: #888;
-    margin-bottom: var(--spacing-lg);
-    font-size: 15px;
-}
-
-.hero-stats {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: var(--spacing-md);
-    margin-bottom: var(--spacing-lg);
-}
-
-.hero-stat {
-    background: #1a1a2e;
-    border-radius: var(--radius-md);
-    padding: var(--spacing-md);
+    padding: 12px;
     text-align: center;
 }
-
-.hero-stat label {
-    display: block;
-    font-size: 12px;
-    color: #666;
-    margin-bottom: 4px;
+.hero-card-info h3 { font-size: 15px; color: #fff; margin-bottom: 4px; }
+.hero-card-info p { font-size: 12px; color: #888; }
+.hero-tag {
+    display: inline-block;
+    font-size: 11px;
+    padding: 1px 6px;
+    background: #333;
+    color: var(--color-gold);
+    border-radius: 2px;
+    margin-right: 4px;
 }
 
-.hero-stat .value {
-    font-size: 22px;
-    font-weight: bold;
-    color: var(--color-accent);
-}
-
-.hero-skills {
-    margin-top: var(--spacing-lg);
-}
-
-.hero-skills h3 {
-    font-size: 16px;
-    margin-bottom: var(--spacing-md);
-    color: var(--color-primary);
-}
-
-.skill-item {
-    display: flex;
-    gap: var(--spacing-md);
-    background: #1a1a2e;
-    border-radius: var(--radius-md);
-    padding: var(--spacing-md);
-    margin-bottom: var(--spacing-md);
-}
-
-.skill-item img {
-    width: 72px;
-    height: 72px;
-    border-radius: var(--radius-sm);
-    object-fit: cover;
-}
-
-.skill-item-info h4 {
-    font-size: 15px;
-    margin-bottom: 4px;
-    color: #ccc;
-}
-
-.skill-item-info p {
-    font-size: 13px;
-    color: #777;
-    line-height: 1.6;
-}
-
-/* ---------- 15. 新闻列表页 ---------- */
-.news-list {
-    max-width: 900px;
-    margin: 0 auto;
-}
-
+/* ---------- 17. 新闻列表（内页） ---------- */
+.news-list { display: flex; flex-direction: column; gap: 0; }
 .news-list-item {
     display: flex;
-    gap: var(--spacing-lg);
-    padding: var(--spacing-lg);
-    background: #1a1a2e;
-    border-radius: var(--radius-md);
-    margin-bottom: var(--spacing-md);
-    transition: transform 0.3s;
+    gap: 20px;
+    padding: 16px 0;
+    border-bottom: 1px solid #1e1e24;
     cursor: pointer;
+    transition: background 0.2s;
 }
-
-.news-list-item:hover {
-    transform: translateX(4px);
-}
-
+.news-list-item:hover { background: rgba(255,255,255,0.02); }
 .news-list-item img {
-    width: 200px;
-    height: 130px;
-    border-radius: var(--radius-sm);
+    width: 160px;
+    height: 100px;
     object-fit: cover;
+    border-radius: 4px;
     flex-shrink: 0;
 }
+.news-list-item-content { flex: 1; }
+.news-list-item-content h3 { font-size: 16px; color: #fff; margin-bottom: 6px; }
+.news-list-item-content p { font-size: 13px; color: #666; margin-bottom: 8px; line-height: 1.5; }
+.news-meta { display: flex; gap: 8px; align-items: center; font-size: 12px; color: #555; }
+.news-meta .tag { padding: 2px 8px; border-radius: 2px; font-size: 11px; }
 
-.news-list-item-content h3 {
-    font-size: 17px;
-    margin-bottom: 8px;
-    color: #ccc;
-}
-
-.news-list-item-content p {
-    font-size: 13px;
-    color: #777;
-    line-height: 1.6;
-    margin-bottom: 8px;
-}
-
-.news-meta {
-    font-size: 12px;
-    color: #555;
-}
-
-.news-meta .tag {
-    display: inline-block;
-    padding: 1px 8px;
-    border-radius: 3px;
-    margin-right: 8px;
-}
-
-/* ---------- 16. 表单样式 ---------- */
-.form-box {
-    background: #1a1a2e;
-    border-radius: var(--radius-md);
-    padding: var(--spacing-xl);
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-.form-box h2 {
-    text-align: center;
-    color: var(--color-primary);
-    margin-bottom: var(--spacing-xl);
-    font-size: 22px;
-}
-
-.form-group {
-    margin-bottom: var(--spacing-lg);
-}
-
-.form-group label {
-    display: block;
-    font-size: 13px;
-    margin-bottom: 6px;
-    color: #888;
-}
-
-.form-group input,
-.form-group textarea,
-.form-group select {
-    width: 100%;
-    padding: 10px 14px;
-    border: 1px solid #333;
-    border-radius: var(--radius-sm);
-    font-size: 14px;
-    font-family: inherit;
-    background: #0d0d1a;
-    color: #ccc;
-    transition: border-color 0.3s;
-}
-
-.form-group input:focus,
-.form-group textarea:focus,
-.form-group select:focus {
-    outline: none;
-    border-color: var(--color-primary);
-}
-
-.form-group textarea {
-    height: 120px;
-    resize: vertical;
-}
-
-.btn-submit {
-    width: 100%;
-    padding: 12px;
-    background: var(--color-primary);
-    color: #000;
-    border: none;
-    border-radius: var(--radius-sm);
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background 0.3s;
-}
-
-.btn-submit:hover {
-    background: #ffb933;
-}
-
-/* ---------- 17. 视频/赛事卡片 ---------- */
+/* ---------- 18. 视频网格 ---------- */
 .video-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: var(--spacing-lg);
+    gap: 20px;
 }
-
 .video-card {
-    background: #1a1a2e;
-    border-radius: var(--radius-md);
+    background: var(--bg-card);
+    border-radius: 4px;
     overflow: hidden;
+    cursor: pointer;
     transition: transform 0.3s;
 }
-
-.video-card:hover {
-    transform: translateY(-4px);
-}
-
+.video-card:hover { transform: translateY(-4px); }
 .video-thumbnail {
     position: relative;
     height: 160px;
     overflow: hidden;
 }
-
 .video-thumbnail img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
-
 .video-play-icon {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 46px;
-    height: 46px;
-    background: rgba(232, 169, 26, 0.9);
+    width: 44px;
+    height: 44px;
+    background: rgba(0,0,0,0.6);
+    border: 2px solid rgba(255,255,255,0.8);
     border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
+    color: #fff;
     font-size: 18px;
-}
-
-.video-card-body {
-    padding: var(--spacing-sm);
-}
-
-.video-card-body h3 {
-    font-size: 14px;
-    color: #ccc;
-}
-
-.video-card-body p {
-    font-size: 12px;
-    color: #555;
-}
-
-/* ---------- 18. 下载页样式 ---------- */
-.download-platforms {
-    display: flex;
-    justify-content: center;
-    gap: var(--spacing-xl);
-    flex-wrap: wrap;
-    margin: var(--spacing-xl) 0;
-}
-
-.platform-card {
-    background: #1a1a2e;
-    border-radius: var(--radius-lg);
-    padding: var(--spacing-xl);
     text-align: center;
-    width: 280px;
-    transition: transform 0.3s;
+    line-height: 44px;
+    padding-left: 4px;
 }
+.video-card-body { padding: 14px; }
+.video-card-body h3 { font-size: 14px; color: #ccc; margin-bottom: 6px; }
+.video-card-body p { font-size: 12px; color: #666; }
 
-.platform-card:hover {
-    transform: translateY(-4px);
-}
-
-.platform-icon {
-    width: 72px;
-    height: 72px;
-    margin: 0 auto var(--spacing-md);
-    border-radius: var(--radius-md);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 32px;
-}
-
-.platform-card h3 {
-    color: #ccc;
-    font-size: 18px;
-    margin-bottom: 8px;
-}
-
-.platform-card p {
-    color: #666;
-    font-size: 13px;
-    margin-bottom: var(--spacing-md);
-}
-
-.btn-platform-download {
-    display: inline-block;
-    padding: 10px 28px;
-    background: var(--color-primary);
-    color: #000;
-    border-radius: var(--radius-sm);
-    font-weight: bold;
-    transition: background 0.3s;
-}
-
-.btn-platform-download:hover {
-    background: #ffb933;
-}
-
-/* ---------- 19. Tab 切换 ---------- */
+/* Tab 切换 */
 .tab-btn {
     padding: 8px 24px;
+    background: none;
     border: 1px solid #333;
-    background: transparent;
-    border-radius: 20px;
-    cursor: pointer;
-    font-size: 14px;
-    transition: all 0.3s;
     color: #888;
+    font-size: 14px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: all 0.2s;
 }
-
-.tab-btn:hover,
+.tab-btn:hover { border-color: var(--color-gold); color: var(--color-gold); }
 .tab-btn.active {
     background: var(--color-primary);
     border-color: var(--color-primary);
     color: #000;
+}
+.tab-panel { display: none; }
+.tab-panel.active { display: block; }
+
+/* ---------- 19. 赛事卡 ---------- */
+.esports-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+}
+.esports-card {
+    background: var(--bg-card);
+    border-radius: 4px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+.esports-card:hover { transform: translateY(-4px); }
+.esports-card img {
+    width: 100%;
+    height: 130px;
+    object-fit: cover;
+}
+.esports-card-info { padding: 12px; }
+.esports-card-info h4 { font-size: 14px; color: #ccc; margin-bottom: 4px; }
+.esports-card-info p { font-size: 12px; color: #666; }
+
+/* ---------- 20. 英雄详情页 ---------- */
+.hero-detail-section { padding: 40px 0; background: var(--bg); }
+.hero-detail-wrapper {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 40px;
+}
+.hero-detail-left img {
+    width: 100%;
+    border-radius: 4px;
+}
+.hero-detail-right h2 { font-size: 28px; color: #fff; }
+.hero-subtitle { color: #888; font-size: 14px; margin-top: 4px; margin-bottom: 20px; }
+.hero-stats {
+    display: flex;
+    gap: 20px;
+    padding: 16px;
+    background: var(--bg-card);
+    border-radius: 4px;
+    margin-bottom: 24px;
+}
+.hero-stat { text-align: center; }
+.hero-stat label { font-size: 12px; color: #666; display: block; margin-bottom: 4px; }
+.hero-stat .value { font-size: 16px; color: var(--color-gold); letter-spacing: 2px; }
+.hero-skills h3 { color: var(--color-gold); font-size: 16px; margin-bottom: 16px; }
+.skill-item {
+    display: flex;
+    gap: 16px;
+    padding: 14px;
+    background: var(--bg-card);
+    border-radius: 4px;
+    margin-bottom: 12px;
+}
+.skill-item img {
+    width: 56px;
+    height: 56px;
+    border-radius: 4px;
+    flex-shrink: 0;
+}
+.skill-item-info h4 { font-size: 15px; color: #ccc; margin-bottom: 4px; }
+.skill-item-info p { font-size: 13px; color: #777; line-height: 1.6; }
+
+/* ---------- 21. 下载页 ---------- */
+.download-platforms {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-bottom: 40px;
+}
+.platform-card {
+    background: var(--bg-card);
+    border-radius: 8px;
+    padding: 40px 30px;
+    text-align: center;
+    transition: transform 0.3s;
+}
+.platform-card:hover { transform: translateY(-4px); }
+.platform-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin: 0 auto 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 36px;
+}
+.platform-card h3 { font-size: 20px; color: #fff; margin-bottom: 8px; }
+.platform-card p { font-size: 13px; color: #666; line-height: 1.7; margin-bottom: 10px; }
+.btn-platform-download {
+    display: inline-block;
+    margin-top: 16px;
+    padding: 10px 30px;
+    background: var(--color-primary);
+    color: #000;
     font-weight: bold;
+    border-radius: 4px;
+    font-size: 14px;
 }
+.btn-platform-download:hover { background: var(--color-gold); }
 
-.tab-panel {
-    display: none;
+/* ---------- 22. 关于页 ---------- */
+
+/* ---------- 23. 联系页 ---------- */
+.form-box {
+    max-width: 700px;
+    margin: 0 auto;
+    background: var(--bg-card);
+    border-radius: 8px;
+    padding: 40px;
 }
-
-.tab-panel.active {
+.form-box h2 { text-align: center; color: #fff; margin-bottom: 30px; font-size: 22px; }
+.form-group { margin-bottom: 20px; }
+.form-group label {
     display: block;
+    font-size: 13px;
+    color: #888;
+    margin-bottom: 8px;
 }
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px 16px;
+    background: #0d0d12;
+    border: 1px solid #2a2a30;
+    border-radius: 4px;
+    color: #ccc;
+    font-size: 14px;
+    font-family: inherit;
+    transition: border-color 0.2s;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--color-gold);
+}
+.form-group textarea { height: 140px; resize: vertical; }
+.btn-submit {
+    display: block;
+    width: 100%;
+    padding: 14px;
+    background: var(--color-primary);
+    color: #000;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.btn-submit:hover { background: var(--color-gold); }
 
-/* ---------- 20. 分页 ---------- */
+/* ---------- 24. 分页 ---------- */
 .pagination {
     display: flex;
     justify-content: center;
-    gap: var(--spacing-sm);
-    margin-top: var(--spacing-xl);
+    gap: 8px;
+    margin-top: 40px;
 }
-
 .pagination button {
-    width: 38px;
-    height: 38px;
-    border: 1px solid #333;
-    background: transparent;
-    border-radius: var(--radius-sm);
-    cursor: pointer;
-    font-size: 14px;
+    width: 36px;
+    height: 36px;
+    background: var(--bg-card);
+    border: 1px solid #2a2a30;
     color: #888;
-    transition: all 0.3s;
+    font-size: 14px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: all 0.2s;
 }
-
-.pagination button:hover,
+.pagination button:hover { border-color: var(--color-gold); color: var(--color-gold); }
 .pagination button.active {
     background: var(--color-primary);
     border-color: var(--color-primary);
     color: #000;
-    font-weight: bold;
-}
-
-/* ---------- 21. 回顶部按钮 ---------- */
-.back-to-top {
-    position: fixed;
-    right: 30px;
-    bottom: 30px;
-    width: 42px;
-    height: 42px;
-    background: var(--color-primary);
-    color: #000;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 18px;
-    cursor: pointer;
-    opacity: 0;
-    transition: opacity 0.3s;
-    z-index: 999;
-}
-
-.back-to-top.show {
-    opacity: 1;
-}
-
-/* ---------- 22. 响应式 ---------- */
-@media (max-width: 768px) {
-    .container { width: 100%; }
-
-    .top-bar { display: none; }
-
-    .nav-list { display: none; }
-
-    .news-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .hero-guide {
-        grid-template-columns: 1fr;
-    }
-
-    .skin-hero-module {
-        grid-template-columns: 1fr;
-    }
-
-    .esports-cards {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .content-cards {
-        grid-template-columns: 1fr;
-    }
-
-    .hero-detail-wrapper {
-        flex-direction: column;
-    }
-
-    .hero-detail-left {
-        flex: none;
-    }
-
-    .hero-stats {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .video-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .footer-content {
-        flex-direction: column;
-    }
-
-    .banner-content h1 {
-        font-size: 28px;
-    }
 }

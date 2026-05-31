@@ -10,337 +10,410 @@
 
     <!-- ===== 顶部工具栏 ===== -->
     <div class="top-bar">
-        <a href="#">登录</a>
-        <span class="split">|</span>
-        <a href="#">注册</a>
-        <span class="split">|</span>
-        <a href="contact.html">客服中心</a>
+        <div class="container top-bar-inner">
+            <div class="top-bar-left">
+                <a href="#">欢迎登录</a>
+            </div>
+            <div class="top-bar-right">
+                <a href="#">登录</a>
+                <span class="split">|</span>
+                <a href="#">注册</a>
+                <span class="split">|</span>
+                <a href="contact.html">客服中心</a>
+            </div>
+        </div>
     </div>
 
     <!-- ===== 主导航栏 ===== -->
     <header class="header">
-        <div class="container">
-            <nav class="nav">
-                <!-- Logo -->
-                <a href="index.html" class="logo">
-                    👑 王者荣耀
-                </a>
+        <div class="container header-inner">
+            <!-- Logo -->
+            <a href="index.html" class="logo">
+                <img src="https://game.gtimg.cn/images/yxzj/web201610/logo.png" alt="王者荣耀" style="height:40px;">
+            </a>
 
-                <!-- 导航链接（与官方一致）-->
+            <!-- 导航链接 -->
+            <nav class="main-nav">
                 <ul class="nav-list">
-                    <li>
+                    <li class="nav-item">
                         <a href="index.html" class="active">
                             <span>首页</span>
                             <span class="nav-en">HOME</span>
                         </a>
                     </li>
-                    <li>
+                    <li class="nav-item">
                         <a href="heroes.html">
                             <span>游戏资料</span>
                             <span class="nav-en">DATA</span>
                         </a>
                     </li>
-                    <li>
+                    <li class="nav-item">
                         <a href="video.html">
                             <span>内容中心</span>
                             <span class="nav-en">CONTENTS</span>
                         </a>
                     </li>
-                    <li>
+                    <li class="nav-item">
                         <a href="esports.html">
                             <span>赛事中心</span>
                             <span class="nav-en">MATCH</span>
                         </a>
                     </li>
-                    <li>
+                    <li class="nav-item">
                         <a href="about.html">
                             <span>王者文化</span>
                             <span class="nav-en">CULTURE</span>
                         </a>
                     </li>
-                    <li>
+                    <li class="nav-item">
                         <a href="contact.html">
                             <span>玩家支持</span>
                             <span class="nav-en">PLAYER</span>
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a href="#">
+                            <span>IP新游</span>
+                            <span class="nav-en">NEW GAMES</span>
+                        </a>
+                    </li>
                 </ul>
-
-                <!-- 右侧下载按钮 -->
-                <div class="nav-right">
-                    <a href="download.html" class="btn-download-nav">
-                        📥 下载游戏
-                    </a>
-                </div>
             </nav>
+
+            <!-- 右侧下载按钮 -->
+            <div class="header-right">
+                <a href="download.html" class="btn-download-header">下载游戏</a>
+            </div>
         </div>
     </header>
 
-    <!-- ===== 轮播 Banner ===== -->
-    <section class="banner">
-        <div class="banner-slides">
-            <div class="banner-slide">
-                <img src="https://game.gtimg.cn/images/yxzj/web201610/page_banner1.jpg" alt="王者荣耀">
-                <div class="banner-overlay"></div>
-                <div class="banner-content">
-                    <h1>王者荣耀</h1>
-                    <p>5V5 英雄公平对战手游</p>
-                    <a href="download.html" class="btn-primary">立即下载</a>
+    <!-- ===== 主内容 ===== -->
+    <main class="home-main">
+
+        <!-- ===== 1. Banner 轮播 ===== -->
+        <section class="home-banner">
+            <div class="banner-slides">
+                <div class="banner-slide">
+                    <img src="https://game.gtimg.cn/images/yxzj/web201610/h5_banner1.jpg" alt="王者荣耀">
+                </div>
+                <div class="banner-slide">
+                    <img src="https://game.gtimg.cn/images/yxzj/web201610/h5_banner2.jpg" alt="新赛季">
+                </div>
+                <div class="banner-slide">
+                    <img src="https://game.gtimg.cn/images/yxzj/web201610/h5_banner3.jpg" alt="冠军杯">
                 </div>
             </div>
-            <div class="banner-slide">
-                <img src="https://game.gtimg.cn/images/yxzj/web201610/page_banner2.jpg" alt="新赛季">
-                <div class="banner-overlay"></div>
-                <div class="banner-content">
-                    <h1>S32新赛季</h1>
-                    <p>世界新篇章 · 荣耀启程</p>
-                    <a href="news.html" class="btn-primary">了解更多</a>
-                </div>
-            </div>
-            <div class="banner-slide">
-                <img src="https://game.gtimg.cn/images/yxzj/web201610/page_banner3.jpg" alt="冠军杯">
-                <div class="banner-overlay"></div>
-                <div class="banner-content">
-                    <h1>KPL春季赛总决赛</h1>
-                    <p>巅峰对决 · 荣耀之战</p>
-                    <a href="esports.html" class="btn-primary">观赛入口</a>
-                </div>
-            </div>
-        </div>
+            <div class="banner-dots"></div>
+        </section>
 
-        <div class="banner-arrow prev">‹</div>
-        <div class="banner-arrow next">›</div>
+        <!-- ===== 2. 新闻中心 ===== -->
+        <section class="home-section news-center">
+            <div class="container">
 
-        <div class="banner-dots">
-            <span class="active"></span>
-            <span></span>
-            <span></span>
-        </div>
-    </section>
-
-    <!-- ===== 主内容区域 ===== -->
-    <div class="main-content">
-
-        <div class="container">
-
-            <!-- ===== 新闻模块（与官方一致的结构）===== -->
-            <div class="news-module">
                 <!-- 新闻 Tab 栏 -->
-                <div class="news-tabs">
+                <div class="news-tab-bar">
                     <a href="#" class="active">热门</a>
                     <a href="#">公告</a>
                     <a href="#">新闻</a>
                     <a href="#">活动</a>
                     <a href="#">赛事</a>
-                    <a href="news.html" class="more">更多 ›</a>
+                    <a href="news.html" class="news-more">更多 ›</a>
                 </div>
-                <!-- 新闻网格 -->
-                <div class="news-grid">
-                    <div class="news-item">
-                        <img src="https://game.gtimg.cn/images/yxzj/uploadIMG/applogo/2024/0610.jpg" alt="S32赛季">
-                        <div class="news-item-info">
-                            <span class="tag">热门</span>
-                            <div class="title">S32赛季即将开启：新增两件装备调整</div>
-                            <div class="date">06-01</div>
-                        </div>
-                    </div>
-                    <div class="news-item">
-                        <img src="https://game.gtimg.cn/images/yxzj/uploadIMG/applogo/2024/0530.jpg" alt="体验服更新">
-                        <div class="news-item-info">
-                            <span class="tag">公告</span>
-                            <div class="title">5月30日体验服不停机更新公告</div>
-                            <div class="date">05-30</div>
-                        </div>
-                    </div>
-                    <div class="news-item">
-                        <img src="https://game.gtimg.cn/images/yxzj/uploadIMG/applogo/2024/0529.jpg" alt="送皮肤活动">
-                        <div class="news-item-info">
-                            <span class="tag">活动</span>
-                            <div class="title">世界新赛季送全新皮肤活动公告</div>
-                            <div class="date">05-29</div>
-                        </div>
-                    </div>
-                    <div class="news-item">
-                        <img src="https://game.gtimg.cn/images/yxzj/uploadIMG/applogo/2024/0528.jpg" alt="服务器优化">
-                        <div class="news-item-info">
-                            <span class="tag">公告</span>
-                            <div class="title">5月29日服务器优化升级公告</div>
-                            <div class="date">05-28</div>
-                        </div>
-                    </div>
-                    <div class="news-item">
-                        <img src="https://game.gtimg.cn/images/yxzj/uploadIMG/applogo/2024/0525.jpg" alt="端午活动">
-                        <div class="news-item-info">
-                            <span class="tag">活动</span>
-                            <div class="title">端午节日活动：登录送永久英雄</div>
-                            <div class="date">05-25</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
-            <!-- ===== 英雄攻略模块 ===== -->
-            <div style="margin-top:var(--spacing-xl);">
-                <h2>🏆 <span class="highlight">英雄</span>攻略</h2>
-                <div class="hero-guide">
-                    <!-- 英雄卡片 1 -->
-                    <div class="hero-card" onclick="location.href='hero-detail.html'">
-                        <img src="https://game.gtimg.cn/images/yxzj/img201606/heroimg/111/111.jpg" alt="后羿">
-                        <div class="hero-card-overlay">
-                            <h3>后羿</h3>
-                            <p><span class="hero-tag">射手</span>团战持续输出</p>
-                        </div>
-                    </div>
-                    <!-- 英雄卡片 2 -->
-                    <div class="hero-card" onclick="location.href='hero-detail.html'">
-                        <img src="https://game.gtimg.cn/images/yxzj/img201606/heroimg/109/109.jpg" alt="妲己">
-                        <div class="hero-card-overlay">
-                            <h3>妲己</h3>
-                            <p><span class="hero-tag">法师</span>草丛偷袭专家</p>
-                        </div>
-                    </div>
-                    <!-- 英雄卡片 3 -->
-                    <div class="hero-card" onclick="location.href='hero-detail.html'">
-                        <img src="https://game.gtimg.cn/images/yxzj/img201606/heroimg/142/142.jpg" alt="安琪拉">
-                        <div class="hero-card-overlay">
-                            <h3>安琪拉</h3>
-                            <p><span class="hero-tag">法师</span>爆发控制女王</p>
-                        </div>
-                    </div>
+                <!-- 新闻列表（官方风格：无图片，tag + 标题 + 日期）-->
+                <div class="news-list-official">
+                    <a href="news.html" class="news-row">
+                        <span class="news-tag">热门</span>
+                        <span class="news-title">6月1日服务器优化升级公告</span>
+                        <span class="news-date">05/31</span>
+                    </a>
+                    <a href="news.html" class="news-row">
+                        <span class="news-tag">热门</span>
+                        <span class="news-title">5月30日体验服不停机更新公告</span>
+                        <span class="news-date">05/29</span>
+                    </a>
+                    <a href="news.html" class="news-row">
+                        <span class="news-tag">活动</span>
+                        <span class="news-title">【世界新赛季 送全新皮肤】活动公告</span>
+                        <span class="news-date">05/29</span>
+                    </a>
+                    <a href="news.html" class="news-row">
+                        <span class="news-tag">热门</span>
+                        <span class="news-title">5月29日服务器优化升级公告</span>
+                        <span class="news-date">05/28</span>
+                    </a>
+                    <a href="news.html" class="news-row">
+                        <span class="news-tag">活动</span>
+                        <span class="news-title">端午节日活动：登录送永久英雄</span>
+                        <span class="news-date">05/25</span>
+                    </a>
                 </div>
-            </div>
 
-            <!-- ===== 最新皮肤 + 最新英雄（官方布局）===== -->
-            <div style="margin-top:var(--spacing-xl);">
-                <h2>✨ 最新<span class="highlight">皮肤</span> & 英雄</h2>
-                <div class="skin-hero-module">
+            </div>
+        </section>
+
+        <!-- ===== 3. 最新皮肤 ===== -->
+        <section class="home-section skin-section">
+            <div class="container">
+
+                <div class="section-header">
+                    <h2>最新皮肤</h2>
+                    <a href="skins.html" class="section-more">更多 ›</a>
+                </div>
+
+                <div class="skin-showcase">
                     <!-- 主皮肤卡片 -->
-                    <div class="skin-hero-card" onclick="location.href='skins.html'">
-                        <img src="https://game.gtimg.cn/images/yxzj/img201606/skin/big-11120.jpg" alt="黄金射手座">
-                        <span class="label">传说皮肤</span>
-                        <div class="info">
-                            <h4>后羿·黄金射手座</h4>
+                    <div class="skin-main-card">
+                        <div class="skin-main-img">
+                            <img src="https://game.gtimg.cn/images/yxzj/img201606/skin/big-11120.jpg" alt="黄金射手座">
+                            <div class="skin-hover-btn">详情</div>
+                        </div>
+                        <div class="skin-main-info">
+                            <span class="skin-level">传说</span>
+                            <h3>后羿 · 黄金射手座</h3>
                             <p>双子座主题 · 已上线</p>
                         </div>
                     </div>
-                    <!-- 次皮肤卡片 -->
-                    <div class="skin-hero-card" onclick="location.href='skins.html'">
-                        <img src="https://game.gtimg.cn/images/yxzj/img201606/skin/big-14210.jpg" alt="心灵骇客">
-                        <span class="label">史诗皮肤</span>
-                        <div class="info">
-                            <h4>安琪拉·心灵骇客</h4>
-                            <p>赛博朋克 · 已上线</p>
+
+                    <!-- 次皮肤卡片（横向排列）-->
+                    <div class="skin-sub-list">
+                        <div class="skin-sub-card">
+                            <img src="https://game.gtimg.cn/images/yxzj/img201606/skin/big-14210.jpg" alt="心灵骇客">
+                            <div class="skin-sub-info">
+                                <span>安琪拉 · 心灵骇客</span>
+                                <span class="skin-level-tag">史诗</span>
+                            </div>
                         </div>
-                    </div>
-                    <!-- 英雄卡片 -->
-                    <div class="skin-hero-card" onclick="location.href='heroes.html'">
-                        <img src="https://game.gtimg.cn/images/yxzj/img201606/heroimg/167/167.jpg" alt="孙悟空">
-                        <span class="label" style="background:#d4380d;">新英雄</span>
-                        <div class="info">
-                            <h4>孙悟空</h4>
-                            <p>齐天大圣 · 刺客</p>
+                        <div class="skin-sub-card">
+                            <img src="https://game.gtimg.cn/images/yxzj/img201606/skin/big-10910.jpg" alt="热情桑巴">
+                            <div class="skin-sub-info">
+                                <span>妲己 · 热情桑巴</span>
+                                <span class="skin-level-tag">限定</span>
+                            </div>
+                        </div>
+                        <div class="skin-sub-card">
+                            <img src="https://game.gtimg.cn/images/yxzj/img201606/skin/big-16711.jpg" alt="零号赤心">
+                            <div class="skin-sub-info">
+                                <span>孙悟空 · 零号赤心</span>
+                                <span class="skin-level-tag">传说</span>
+                            </div>
+                        </div>
+                        <div class="skin-sub-card">
+                            <img src="https://game.gtimg.cn/images/yxzj/img201606/skin/big-12711.jpg" alt="偶像歌手">
+                            <div class="skin-sub-info">
+                                <span>王昭君 · 偶像歌手</span>
+                                <span class="skin-level-tag">限定</span>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- ===== 赛事模块 ===== -->
-            <div class="esports-module">
-                <h2>🏅 <span class="highlight">赛事</span>中心</h2>
-                <div class="esports-cards">
-                    <div class="esports-card" onclick="location.href='esports.html'">
+            </div>
+        </section>
+
+        <!-- ===== 4. 最新英雄 ===== -->
+        <section class="home-section hero-section">
+            <div class="container">
+
+                <div class="section-header">
+                    <h2>最新英雄</h2>
+                    <a href="heroes.html" class="section-more">更多 ›</a>
+                </div>
+
+                <div class="hero-list-official">
+                    <div class="hero-item-card" onclick="location.href='hero-detail.html'">
+                        <div class="hero-item-img">
+                            <img src="https://game.gtimg.cn/images/yxzj/img201606/heroimg/167/167.jpg" alt="孙悟空">
+                        </div>
+                        <div class="hero-item-info">
+                            <h3>孙悟空</h3>
+                            <p>刺客 · 齐天大圣</p>
+                        </div>
+                    </div>
+                    <div class="hero-item-card" onclick="location.href='hero-detail.html'">
+                        <div class="hero-item-img">
+                            <img src="https://game.gtimg.cn/images/yxzj/img201606/heroimg/142/142.jpg" alt="安琪拉">
+                        </div>
+                        <div class="hero-item-info">
+                            <h3>安琪拉</h3>
+                            <p>法师 · 燃烧吧</p>
+                        </div>
+                    </div>
+                    <div class="hero-item-card" onclick="location.href='hero-detail.html'">
+                        <div class="hero-item-img">
+                            <img src="https://game.gtimg.cn/images/yxzj/img201606/heroimg/111/111.jpg" alt="后羿">
+                        </div>
+                        <div class="hero-item-info">
+                            <h3>后羿</h3>
+                            <p>射手 · 精准狙击</p>
+                        </div>
+                    </div>
+                    <div class="hero-item-card" onclick="location.href='hero-detail.html'">
+                        <div class="hero-item-img">
+                            <img src="https://game.gtimg.cn/images/yxzj/img201606/heroimg/123/123.jpg" alt="铠">
+                        </div>
+                        <div class="hero-item-info">
+                            <h3>铠</h3>
+                            <p>战士 · 铠的化身</p>
+                        </div>
+                    </div>
+                    <div class="hero-item-card" onclick="location.href='hero-detail.html'">
+                        <div class="hero-item-img">
+                            <img src="https://game.gtimg.cn/images/yxzj/img201606/heroimg/109/109.jpg" alt="妲己">
+                        </div>
+                        <div class="hero-item-info">
+                            <h3>妲己</h3>
+                            <p>法师 · 魅力狐妖</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ===== 5. 内容中心 ===== -->
+        <section class="home-section content-center-section">
+            <div class="container">
+
+                <div class="section-header">
+                    <h2>内容中心</h2>
+                    <a href="video.html" class="section-more">更多 ›</a>
+                </div>
+
+                <div class="content-center-grid">
+                    <!-- 英雄攻略 -->
+                    <div class="content-card-type" onclick="location.href='video.html'">
+                        <img src="https://game.gtimg.cn/images/yxzj/img201606/heroimg/111/111.jpg" alt="英雄攻略">
+                        <div class="content-card-label">英雄攻略</div>
+                    </div>
+                    <!-- 精品栏目 -->
+                    <div class="content-card-type" onclick="location.href='video.html'">
+                        <img src="https://game.gtimg.cn/images/yxzj/video/cover/2024/0608_1.jpg" alt="精品栏目">
+                        <div class="content-card-label">精品栏目</div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ===== 6. 英雄攻略（详细）===== -->
+        <section class="home-section hero-guide-section">
+            <div class="container">
+
+                <div class="section-header">
+                    <h2>英雄攻略</h2>
+                    <a href="video.html" class="section-more">更多 ›</a>
+                </div>
+
+                <div class="hero-guide-main">
+                    <div class="hero-guide-left">
+                        <img src="https://game.gtimg.cn/images/yxzj/img201606/heroimg/111/111.jpg" alt="后羿">
+                        <div class="hero-guide-name">
+                            <h3>后羿</h3>
+                            <p>元流之子（刺客）</p>
+                        </div>
+                    </div>
+                    <div class="hero-guide-right">
+                        <!-- 出装 -->
+                        <div class="guide-builds">
+                            <div class="guide-build-title">
+                                <span>推荐出装</span>
+                                <span class="guide-build-tabs">
+                                    <a href="#" class="active">方案一</a>
+                                    <a href="#">方案二</a>
+                                </span>
+                            </div>
+                            <div class="guide-items">
+                                <div class="guide-item"><img src="https://game.gtimg.cn/images/yxzj/img201606/currency/200.png" alt="破晓"></div>
+                                <div class="guide-item"><img src="https://game.gtimg.cn/images/yxzj/img201606/currency/200.png" alt="闪电匕首"></div>
+                                <div class="guide-item"><img src="https://game.gtimg.cn/images/yxzj/img201606/currency/200.png" alt="无尽"></div>
+                                <div class="guide-item"><img src="https://game.gtimg.cn/images/yxzj/img201606/currency/200.png" alt="泣血"></div>
+                                <div class="guide-item"><img src="https://game.gtimg.cn/images/yxzj/img201606/currency/200.png" alt="破军"></div>
+                                <div class="guide-item"><img src="https://game.gtimg.cn/images/yxzj/img201606/currency/200.png" alt="名刀"></div>
+                            </div>
+                        </div>
+                        <!-- 技能加点 -->
+                        <div class="guide-skills">
+                            <div class="guide-skill-row">
+                                <span class="guide-skill-label">主升</span>
+                                <span class="guide-skill-name">多重箭矢</span>
+                            </div>
+                            <div class="guide-skill-row">
+                                <span class="guide-skill-label">副升</span>
+                                <span class="guide-skill-name">落日余晖</span>
+                            </div>
+                            <div class="guide-skill-row">
+                                <span class="guide-skill-label">召唤师</span>
+                                <span class="guide-skill-name">闪现 / 终结</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ===== 7. 赛事中心 ===== -->
+        <section class="home-section esports-home-section">
+            <div class="container">
+
+                <div class="section-header">
+                    <h2>赛事中心</h2>
+                    <a href="esports.html" class="section-more">更多 ›</a>
+                </div>
+
+                <div class="esports-home-grid">
+                    <div class="esports-home-card" onclick="location.href='esports.html'">
                         <img src="https://game.gtimg.cn/images/yxzj/esports/cover/2024/kpl_spring.jpg" alt="KPL春季赛">
-                        <div class="esports-card-info">
+                        <div class="esports-home-overlay">
                             <h4>KPL 2024 春季赛</h4>
                             <p>进行中 · 冠军 350万</p>
                         </div>
                     </div>
-                    <div class="esports-card" onclick="location.href='esports.html'">
+                    <div class="esports-home-card" onclick="location.href='esports.html'">
                         <img src="https://game.gtimg.cn/images/yxzj/esports/cover/2024/worldcup.jpg" alt="世界冠军杯">
-                        <div class="esports-card-info">
+                        <div class="esports-home-overlay">
                             <h4>2024 世界冠军杯</h4>
                             <p>已结束 · 冠军 $500万</p>
                         </div>
                     </div>
-                    <div class="esports-card" onclick="location.href='esports.html'">
+                    <div class="esports-home-card" onclick="location.href='esports.html'">
                         <img src="https://game.gtimg.cn/images/yxzj/esports/cover/2024/daoqij.jpg" alt="道旗杯">
-                        <div class="esports-card-info">
+                        <div class="esports-home-overlay">
                             <h4>道旗杯全国大赛</h4>
                             <p>即将开始 · 冠军 50万</p>
                         </div>
                     </div>
-                    <div class="esports-card" onclick="location.href='esports.html'">
+                    <div class="esports-home-card" onclick="location.href='esports.html'">
                         <img src="https://game.gtimg.cn/images/yxzj/esports/cover/2024/city.jpg" alt="城市赛">
-                        <div class="esports-card-info">
+                        <div class="esports-home-overlay">
                             <h4>全国城市赛</h4>
                             <p>即将开始 · 冠军 20万</p>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- ===== 内容中心（攻略+栏目）===== -->
-            <div class="content-module">
-                <h2>📺 <span class="highlight">内容</span>中心</h2>
-                <div class="content-cards">
-                    <div class="content-card" onclick="location.href='video.html'">
-                        <img src="https://game.gtimg.cn/images/yxzj/video/cover/2024/0612_1.jpg" alt="英雄攻略">
-                        <div class="content-card-info">
-                            <h4>🎮 英雄攻略</h4>
-                            <p>后羿从入门到精通：全方位教学，涵盖出装、铭文、对线技巧</p>
-                        </div>
-                    </div>
-                    <div class="content-card" onclick="location.href='video.html'">
-                        <img src="https://game.gtimg.cn/images/yxzj/video/cover/2024/0608_1.jpg" alt="精品栏目">
-                        <div class="content-card-info">
-                            <h4>🎬 精品栏目</h4>
-                            <p>职业选手视角解读：辅助开团技巧与团队配合要点</p>
-                        </div>
-                    </div>
-                </div>
             </div>
+        </section>
 
-        </div>
-    </div>
+    </main>
 
     <!-- ===== 底部 Footer ===== -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-left">
-                    <h3>👑 王者荣耀</h3>
-                    <p>腾讯游戏旗下产品</p>
+                    <img src="https://game.gtimg.cn/images/yxzj/web201610/logo.png" alt="腾讯游戏" style="height:36px;margin-bottom:8px;">
+                    <p>腾讯互动娱乐 | 服务条款 | 隐私保护指引 | 儿童隐私保护指引</p>
+                    <p>腾讯游戏客服 | 游戏列表 | 广告服务及商务合作</p>
                     <p>© 2024 Tencent. All Rights Reserved.</p>
-                </div>
-                <div class="footer-links">
-                    <div>
-                        <h4>游戏资料</h4>
-                        <a href="heroes.html">英雄列表</a>
-                        <a href="skins.html">皮肤中心</a>
-                        <a href="about.html">游戏背景</a>
-                    </div>
-                    <div>
-                        <h4>媒体内容</h4>
-                        <a href="news.html">新闻资讯</a>
-                        <a href="video.html">视频中心</a>
-                        <a href="esports.html">赛事中心</a>
-                    </div>
-                    <div>
-                        <h4>支持</h4>
-                        <a href="download.html">下载游戏</a>
-                        <a href="contact.html">反馈建议</a>
-                    </div>
+                    <p style="margin-top:6px;">深圳市市场监督管理局企业主体身份公示 工商网监电子标识</p>
+                    <p>粤网文[2023]2882-203号 | （署）网出证（粤）字第054号</p>
+                    <p>文网游备字[2016]M-CSG 0059号</p>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <a href="#">腾讯互动娱乐</a> |
-                <a href="#">服务条款</a> |
-                <a href="#">王者荣耀隐私保护指引</a> |
-                <a href="#">儿童隐私保护指引</a><br>
-                深圳市市场监督管理局企业主体身份公示 工商网监电子标识 |
-                <a href="#">粤网文[2023]2882-203号</a> |
-                <a href="#">（署）网出证（粤）字第054号</a><br>
-                © 2024 腾讯公司版权所有 | 本网页为大学期末作业静态演示项目
+            <div class="footer-bottom-center">
+                本网页为大学期末作业静态演示项目，非官方页面
             </div>
         </div>
     </footer>
